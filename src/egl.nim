@@ -869,7 +869,7 @@ proc eglBindAPI*(api: EGLenum): EGLBoolean {.cdecl, dynlib: dllname, importc.}
   ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
   ##
   ## The following error codes may be generated:
-  ## - `EGL_BAD_PARAMETER if api is not one of the accepted tokens, or if the
+  ## - `EGL_BAD_PARAMETER` if api is not one of the accepted tokens, or if the
   ##   specified client API is not supported by the EGL implementation.
 
 
@@ -1158,7 +1158,7 @@ proc eglCreateImage*(display: EGLDisplay; context: EGLContext; target: EGLenum;
   ## - `EGL_BAD_CONTEXT` if target is `EGL_GL_TEXTURE_2D`,
   ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or
   ##   `EGL_GL_TEXTURE_3D`, and `context` is not a valid context.
-  ## - `r EGL_BAD_MATCH` if `target` is `EGL_GL_TEXTURE_2D`,
+  ## - `EGL_BAD_MATCH` if `target` is `EGL_GL_TEXTURE_2D`,
   ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or
   ##   `EGL_GL_TEXTURE_3D`, and `context` is not a valid GL context, or does not
   ##   match the `display`.
@@ -1195,7 +1195,7 @@ proc eglCreateImage*(display: EGLDisplay; context: EGLContext; target: EGLenum;
   ##   of the specified mipmap level-of-detail in `buffer`.
   ## - `EGL_BAD_PARAMETER` if an attribute specified in `attribList` is not one
   ##   of the supported attributes.
-  ## - `r EGL_BAD_MATCH` if an attribute specified in `attribList` is not a
+  ## - `EGL_BAD_MATCH` if an attribute specified in `attribList` is not a
   ##   valid attribute for `target`.
   ## - `EGL_BAD_ACCESS` if the resource specified by `display`, `context`,
   ##   `target`, `buffer` and `attribList` has an off-screen buffer bound to it
