@@ -5,11 +5,11 @@
 ## See the file LICENSE included in this distribution for licensing details.
 ## GitHub pull requests are encouraged. (c) 2015 Headcrash Industries LLC.
 
-import egl10/egl, nativewindow, os
+import egl, nativewindow, os
+
 
 # get and initialize an EGL display connection
 var window: NativeWindow
-
 window.display = eglGetDisplay(0)
 discard eglInitialize(window.display, nil, nil)
 

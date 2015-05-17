@@ -7,6 +7,7 @@
 
 {.deadCodeElim: on.}
 
+
 when defined(windows):
   import windows
 
@@ -704,3 +705,638 @@ proc eglWaitNative*(engine: EGLint): EGLBoolean
   ## - `EGL_BAD_CURRENT_SURFACE` if the surface associated with the current
   ##   context has a native window or pixmap, and that window or pixmap is no
   ##   longer valid.
+
+
+# EGL 1.1 ######################################################################
+
+const
+  EGL_BACK_BUFFER* = 0x00003084
+  EGL_BIND_TO_TEXTURE_RGB* = 0x00003039
+  EGL_BIND_TO_TEXTURE_RGBA* = 0x0000303A
+  EGL_CONTEXT_LOST* = 0x0000300E
+  EGL_MIN_SWAP_INTERVAL* = 0x0000303B
+  EGL_MAX_SWAP_INTERVAL* = 0x0000303C
+  EGL_MIPMAP_TEXTURE* = 0x00003082
+  EGL_MIPMAP_LEVEL* = 0x00003083
+  EGL_NO_TEXTURE* = 0x0000305C
+  EGL_TEXTURE_2D* = 0x0000305F
+  EGL_TEXTURE_FORMAT* = 0x00003080
+  EGL_TEXTURE_RGB* = 0x0000305D
+  EGL_TEXTURE_RGBA* = 0x0000305E
+  EGL_TEXTURE_TARGET* = 0x00003081
+
+
+proc eglBindTexImage*(display: EGLDisplay; surface: EGLSurface; buffer: EGLint):
+  EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Defines a two-dimensional texture image.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## surface
+  ##   Specifies the EGL surface.
+  ## buffer
+  ##   Specifies the texture image data.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_ACCESS` if buffer is already bound to a texture.
+  ## - `EGL_BAD_MATCH` if the surface attribute
+  ##   `EGL_TEXTURE_FORMAT` is set to `EGL_NO_TEXTURE`.
+  ## - `EGL_BAD_MATCH` if buffer is not a valid buffer (currently only
+  ##   `EGL_BACK_BUFFER` may be specified).
+  ## - `EGL_BAD_SURFACE` if surface is not an EGL surface, or is not a pbuffer
+  ##   surface supporting texture binding.
+
+
+proc eglReleaseTexImage*(display: EGLDisplay; surface: EGLSurface;
+  buffer: EGLint): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Releases a color buffer that is being used as a texture.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## surface
+  ##   Specifies the EGL surface.
+  ## buffer
+  ##   Specifies the texture image data.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_MATCH` if the surface attribute `EGL_TEXTURE_FORMAT` is set to
+  ##   `EGL_NO_TEXTURE`.
+  ## - `EGL_BAD_MATCH` if buffer is not a valid buffer (currently only
+  ##   `EGL_BACK_BUFFER` may be specified).
+  ## - `EGL_BAD_SURFACE` if surface is not an EGL surface, or is not a bound
+  ##   pbuffer surface.
+
+
+proc eglSurfaceAttrib*(display: EGLDisplay; surface: EGLSurface;
+  attribute: EGLint; value: EGLint): EGLBoolean
+  {.cdecl, dynlib: dllname, importc.}
+  ## Set an EGL surface attribute.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## surface
+  ##   Specifies the EGL surface.
+  ## attribute
+  ##   Specifies the EGL surface attribute to set.
+  ## value
+  ##   Specifies the attributes required value.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_DISPLAY` if display is not an EGL display connection.
+  ## - `EGL_BAD_MATCH` if attribute is `EGL_MULTISAMPLE_RESOLVE`, value is
+  ##   `EGL_MULTISAMPLE_RESOLVE_BOX`, and the `EGL_SURFACE_TYPE` attribute of
+  ##   the `EGLConfig <#EGLConfig>`_ used to create surface does not contain
+  ##   `EGL_MULTISAMPLE_RESOLVE_BOX_BIT`.
+  ## - `EGL_BAD_MATCH` if attribute is `EGL_SWAP_BEHAVIOR`, value is
+  ##   `EGL_BUFFER_PRESERVED`, and the `EGL_SURFACE_TYPE` attribute of the
+  ##   `EGLConfig <#EGLConfig>`_ used to create surface does not contain
+  ##   `EGL_SWAP_BEHAVIOR_PRESERVED_BIT`.
+  ## - `EGL_NOT_INITIALIZED` if display has not been initialized.
+  ## - `EGL_BAD_SURFACE` if surface is not an EGL surface.
+  ## - `EGL_BAD_ATTRIBUTE` if attribute is not a valid surface attribute.
+
+
+proc eglSwapInterval*(display: EGLDisplay; interval: EGLint): EGLBoolean
+  {.cdecl, dynlib: dllname, importc.}
+  ## Specifies the minimum number of video frame periods per buffer swap for the
+  ## window associated with the current context.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## interval
+  ##   Specifies the minimum number of video frames that are displayed before a
+  ##   buffer swap will occur.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_CONTEXT` if there is no current context on the calling thread.
+  ## - `EGL_BAD_SURFACE` if there is no surface bound to the current context.
+
+
+# EGL 1.2 ######################################################################
+
+type
+  EGLenum* = cuint
+  EGLClientBuffer* = pointer
+
+
+const
+  EGL_ALPHA_FORMAT* = 0x00003088
+  EGL_ALPHA_FORMAT_NONPRE* = 0x0000308B
+  EGL_ALPHA_FORMAT_PRE* = 0x0000308C
+  EGL_ALPHA_MASK_SIZE* = 0x0000303E
+  EGL_BUFFER_PRESERVED* = 0x00003094
+  EGL_BUFFER_DESTROYED* = 0x00003095
+  EGL_CLIENT_APIS* = 0x0000308D
+  EGL_COLORSPACE* = 0x00003087
+  EGL_COLORSPACE_sRGB* = 0x00003089
+  EGL_COLORSPACE_LINEAR* = 0x0000308A
+  EGL_COLOR_BUFFER_TYPE* = 0x0000303F
+  EGL_CONTEXT_CLIENT_TYPE* = 0x00003097
+  EGL_DISPLAY_SCALING* = 10000
+  EGL_HORIZONTAL_RESOLUTION* = 0x00003090
+  EGL_LUMINANCE_BUFFER* = 0x0000308F
+  EGL_LUMINANCE_SIZE* = 0x0000303D
+  EGL_OPENGL_ES_BIT* = 0x00000001
+  EGL_OPENVG_BIT* = 0x00000002
+  EGL_OPENGL_ES_API* = 0x000030A0
+  EGL_OPENVG_API* = 0x000030A1
+  EGL_OPENVG_IMAGE* = 0x00003096
+  EGL_PIXEL_ASPECT_RATIO* = 0x00003092
+  EGL_RENDERABLE_TYPE* = 0x00003040
+  EGL_RENDER_BUFFER* = 0x00003086
+  EGL_RGB_BUFFER* = 0x0000308E
+  EGL_SINGLE_BUFFER* = 0x00003085
+  EGL_SWAP_BEHAVIOR* = 0x00003093
+  EGL_UNKNOWN* = -1
+  EGL_VERTICAL_RESOLUTION* = 0x00003091
+
+
+proc eglBindAPI*(api: EGLenum): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Set the current rendering API.
+  ##
+  ## api
+  ##   Specifies the client API to bind, one of `EGL_OPENGL_API`,
+  ##   `EGL_OPENGL_ES_API`, or `EGL_OPENVG_API`.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_PARAMETER if api is not one of the accepted tokens, or if the
+  ##   specified client API is not supported by the EGL implementation.
+
+
+proc eglQueryAPI*(): EGLenum {.cdecl, dynlib: dllname, importc.}
+  ## Query the current rendering API.
+  ##
+  ## result
+  ##   One of the valid API parameters to `eglBindAPI <#eglBindAPI>`_, or
+  ##   `EGL_NONE`.
+
+
+proc eglCreatePbufferFromClientBuffer*(display: EGLDisplay; buftype: EGLenum;
+  buffer: EGLClientBuffer; config: EGLConfig; attribList: ptr EGLint):
+  EGLSurface {.cdecl, dynlib: dllname, importc.}
+  ## Create a new EGL pixel buffer surface bound to an OpenVG image.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## buftype
+  ##   Specifies the type of client API buffer to be bound. Must be
+  ##   `EGL_OPENVG_IMAGE`, corresponding to an OpenVG VGImage buffer.
+  ## buffer
+  ##   Specifies the OpenVG VGImage handle of the buffer to be bound.
+  ## config
+  ##   Specifies the EGL frame buffer configuration that defines the frame
+  ##   buffer resource available to the surface.
+  ## attribList
+  ##   Specifies pixel buffer surface attributes. May be NULL or empty (first
+  ##   attribute is `EGL_NONE`).
+  ## result
+  ##   `EGL_NO_SURFACE` is returned if creation of the context fails.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_DISPLAY if `display` is not an EGL display connection.
+  ## - `EGL_NOT_INITIALIZED` if `display` has not been initialized.
+  ## - `EGL_BAD_CONFIG` if `config` is not an EGL frame buffer configuration.
+  ## - `EGL_BAD_PARAMETER` if `buftype` is not `EGL_OPENVG_IMAGE`, or if buffer is
+  ##   not a valid handle to a VGImage object in the currently bound OpenVG
+  ##   context.
+  ## - `EGL_BAD_ACCESS` if there is no current OpenVG context, or if `buffer` is
+  ##   already bound to another pixel buffer or in use by OpenVG.
+  ## - `EGL_BAD_ALLOC` if there are not enough resources to allocate the new
+  ##   surface.
+  ## - `EGL_BAD_ATTRIBUTE` if `attribList` contains an invalid pixel buffer
+  ##   attribute or if an attribute value is not recognized or out of range.
+  ## - `EGL_BAD_ATTRIBUTE` if `attribList` contains any of the attributes
+  ##   `EGL_MIPMAP_TEXTURE`, `EGL_TEXTURE_FORMAT`, or `EGL_TEXTURE_TARGET`, and
+  ##   config does not support OpenGL ES rendering (e.g. the EGL version is 1.2
+  ##   or later, and the `EGL_RENDERABLE_TYPE` attribute of `config` does not
+  ##   include at least one of `EGL_OPENGL_ES_BIT` or `EGL_OPENGL_ES2_BIT`).
+  ## - `EGL_BAD_MATCH` if `config` does not support rendering to pixel buffers
+  ##   (the `EGL_SURFACE_TYPE` attribute does not contain `EGL_PBUFFER_BIT`).
+  ## - `EGL_BAD_MATCH` if the buffers contained in `buffer` do not match the bit
+  ##   depths for those buffers specified by `config`.
+  ## - `EGL_BAD_MATCH` if the `EGL_TEXTURE_FORMAT` attribute is not
+  ##   `EGL_NO_TEXTURE`, and `EGL_WIDTH` and/or `EGL_HEIGHT` specify an invalid
+  ##   size (e.g., the texture size is not a power of 2, and the underlying
+  ##   OpenGL ES implementation does not support non-power-of-two textures).
+  ## - `EGL_BAD_MATCH` if the `EGL_TEXTURE_FORMAT` attribute is
+  ##   `EGL_NO_TEXTURE`, and `EGL_TEXTURE_TARGET` is something other than
+  ##   `EGL_NO_TEXTURE`; or, `EGL_TEXTURE_FORMAT` is something other than
+  ##   `EGL_NO_TEXTURE`, and `EGL_TEXTURE_TARGET` is `EGL_NO_TEXTURE`.
+  ## - `EGL_BAD_MATCH` if the implementation has additional constraints on which
+  ##   types of client API buffers may be bound to pixel buffer surfaces. For
+  ##   example, it is possible that the OpenVG implementation might not support
+  ##   a VGImage being bound to a pixel buffer which will be used as a mipmapped
+  ##   OpenGL ES texture (e.g. whose `EGL_MIPMAP_TEXTURE` attribute is
+  ##   `EGL_TRUE`). Any such constraints should be documented by the
+  ##   implementation release notes.
+
+
+proc eglReleaseThread*(): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Release EGL per-thread state.
+  ##
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+
+
+proc eglWaitClient*(): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Complete client API execution prior to subsequent native rendering calls.
+  ##
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_CURRENT_SURFACE` if the surface associated with the current context has a native window or pixmap, and that window or pixmap is no longer valid.
+
+
+# EGL 1.3 ######################################################################
+
+const
+  EGL_CONFORMANT* = 0x00003042
+  EGL_CONTEXT_CLIENT_VERSION* = 0x00003098
+  EGL_MATCH_NATIVE_PIXMAP* = 0x00003041
+  EGL_OPENGL_ES2_BIT* = 0x00000004
+  EGL_VG_ALPHA_FORMAT* = 0x00003088
+  EGL_VG_ALPHA_FORMAT_NONPRE* = 0x0000308B
+  EGL_VG_ALPHA_FORMAT_PRE* = 0x0000308C
+  EGL_VG_ALPHA_FORMAT_PRE_BIT* = 0x00000040
+  EGL_VG_COLORSPACE* = 0x00003087
+  EGL_VG_COLORSPACE_sRGB* = 0x00003089
+  EGL_VG_COLORSPACE_LINEAR* = 0x0000308A
+  EGL_VG_COLORSPACE_LINEAR_BIT* = 0x00000020
+
+
+# EGL 1.4 ######################################################################
+
+const
+  EGL_DEFAULT_DISPLAY* = 0
+  EGL_MULTISAMPLE_RESOLVE_BOX_BIT* = 0x00000200
+  EGL_MULTISAMPLE_RESOLVE* = 0x00003099
+  EGL_MULTISAMPLE_RESOLVE_DEFAULT* = 0x0000309A
+  EGL_MULTISAMPLE_RESOLVE_BOX* = 0x0000309B
+  EGL_OPENGL_API* = 0x000030A2
+  EGL_OPENGL_BIT* = 0x00000008
+  EGL_SWAP_BEHAVIOR_PRESERVED_BIT* = 0x00000400
+
+
+proc eglGetCurrentContext*(): EGLContext {.cdecl, dynlib: dllname, importc.}
+  ## Return the current EGL rendering context.
+  ##
+  ## result
+  ##   The current context, or `EGL_NO_CONTEXT` if no context is current.
+
+
+# EGL 1.5 (as of 2014/08/27) ###################################################
+
+type
+  EGLSync* = pointer
+  EGLAttrib* = csize
+  EGLTime* = culonglong
+  EGLImage* = pointer
+
+
+const
+  EGL_CONTEXT_MAJOR_VERSION* = 0x00003098
+  EGL_CONTEXT_MINOR_VERSION* = 0x000030FB
+  EGL_CONTEXT_OPENGL_PROFILE_MASK* = 0x000030FD
+  EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY* = 0x000031BD
+  EGL_NO_RESET_NOTIFICATION* = 0x000031BE
+  EGL_LOSE_CONTEXT_ON_RESET* = 0x000031BF
+  EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT* = 0x00000001
+  EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT* = 0x00000002
+  EGL_CONTEXT_OPENGL_DEBUG* = 0x000031B0
+  EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE* = 0x000031B1
+  EGL_CONTEXT_OPENGL_ROBUST_ACCESS* = 0x000031B2
+  EGL_OPENGL_ES3_BIT* = 0x00000040
+  EGL_CL_EVENT_HANDLE* = 0x0000309C
+  EGL_SYNC_CL_EVENT* = 0x000030FE
+  EGL_SYNC_CL_EVENT_COMPLETE* = 0x000030FF
+  EGL_SYNC_PRIOR_COMMANDS_COMPLETE* = 0x000030F0
+  EGL_SYNC_TYPE* = 0x000030F7
+  EGL_SYNC_STATUS* = 0x000030F1
+  EGL_SYNC_CONDITION* = 0x000030F8
+  EGL_SIGNALED* = 0x000030F2
+  EGL_UNSIGNALED* = 0x000030F3
+  EGL_SYNC_FLUSH_COMMANDS_BIT* = 0x00000001
+  EGL_FOREVER* = 0xFFFFFFFFFFFFFFFF'i64
+  EGL_TIMEOUT_EXPIRED* = 0x000030F5
+  EGL_CONDITION_SATISFIED* = 0x000030F6
+  EGL_NO_SYNC* = (cast[EGLSync](0))
+  EGL_SYNC_FENCE* = 0x000030F9
+  EGL_GL_COLORSPACE* = 0x0000309D
+  EGL_GL_COLORSPACE_SRGB* = 0x00003089
+  EGL_GL_COLORSPACE_LINEAR* = 0x0000308A
+  EGL_GL_RENDERBUFFER* = 0x000030B9
+  EGL_GL_TEXTURE_2D* = 0x000030B1
+  EGL_GL_TEXTURE_LEVEL* = 0x000030BC
+  EGL_GL_TEXTURE_3D* = 0x000030B2
+  EGL_GL_TEXTURE_ZOFFSET* = 0x000030BD
+  EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X* = 0x000030B3
+  EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X* = 0x000030B4
+  EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y* = 0x000030B5
+  EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y* = 0x000030B6
+  EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z* = 0x000030B7
+  EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z* = 0x000030B8
+  EGL_IMAGE_PRESERVED* = 0x000030D2
+  EGL_NO_IMAGE* = (cast[EGLImage](0))
+
+
+proc eglCreateSync*(display: EGLDisplay; syncType: EGLenum;
+  attribList: ptr EGLAttrib): EGLSync {.cdecl, dynlib: dllname, importc.}
+  ## Create a sync object of the specified type.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## syncType
+  ##   The type of sync object to create.
+  ## attribList
+  ##   Specifies attributes for the sync object.
+  ## result
+  ##   The sync object.
+
+
+proc eglDestroySync*(display: EGLDisplay; sync: EGLSync): EGLBoolean
+  {.cdecl, dynlib: dllname, importc.}
+  ## Destroy an existing sync object.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## sync
+  ##   The sync object to destroy.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ##   - `EGL_BAD_PARAMETER` if `sync` is not a valid sync object for `display`.
+
+
+proc eglClientWaitSync*(display: EGLDisplay; sync: EGLSync; flags: EGLint;
+  timeout: EGLTime): EGLint {.cdecl, dynlib: dllname, importc.}
+  ## Blocks the calling thread until the specified sync object signaled or
+  ## timed out.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## sync
+  ##   The sync object to wait for.
+  ## flags
+  ##   Optional `EGL_SYNC_FLUSH_COMMANDS_BIT` to perform a flush when the sync
+  ##   object is unsignaled. If no context is current for the bound API, the
+  ##   `EGL_SYNC_FLUSH_COMMANDS_BIT` bit is ignored.
+  ## timeout
+  ##   Maximum number of nanoseconds to wait, or `EGL_FOREVER`.
+  ## result
+  ##   - `EGL_TIMEOUT_EXPIRED` if the time out period expired before the sync
+  ##   object was signaled
+  ##   - `EGL_CONDITION_SATISFIED` if the sync object was signaled
+  ##   - `EGL_FALSE` on error.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_PARAMETER` if `sync` is not a valid sync object for `display`.
+
+
+proc eglGetSyncAttrib*(display: EGLDisplay; sync: EGLSync; attribute: EGLint;
+  value: ptr EGLAttrib): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  ## Query attributes of a sync object.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## sync
+  ##   The sync object to query.
+  ## attribute
+  ##   The attribute to query. These depend on the type of sync object being
+  ##   queried. See the official EGL documentation for details.
+  ## value
+  ##   Will contain the queried value on success.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_PARAMETER` if `sync` is not a valid sync object.
+  ## - `EGL_BAD_ATTRIBUTE` if `attribute` is not one of the available attributes.
+  ## - `EGL_BAD_MATCH` if `attribute` is not supported for the type of sync
+  ##   object passed in `sync`.
+
+
+proc eglCreateImage*(display: EGLDisplay; context: EGLContext; target: EGLenum;
+  buffer: EGLClientBuffer; attribList: ptr EGLAttrib): EGLImage
+  {.cdecl, dynlib: dllname, importc.}
+  ## Create an EGLImage from an existing image resource.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## context
+  ##   Specifies the EGL client API context.
+  ## target
+  ##   The type of resource being used as the image source.
+  ## buffer
+  ##   The name or handle of the resource to be used as the image source.
+  ## attribList
+  ##   Specifies a list of attributes used to select sub-sections of `buffer`,
+  ##   such as mipmap levels for OpenGL ES texture map resources, as well as
+  ##   behavioral options, such as whether to preserve pixel data during
+  ##   creation. May be `nil`.
+  ## result
+  ##   The image object, or `EGL_NO_IMAGE` on failure.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_DISPLAY` if `display` is not a valid display object.
+  ## - `EGL_BAD_CONTEXT` if `context` is neither a valid context on the display,
+  ##   nor `EGL_NO_CONTEXT`
+  ## - `EGL_BAD_DISPLAY` if `target` is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or
+  ##   `EGL_GL_TEXTURE_3D`, and `display` is not a valid display.
+  ## - `EGL_BAD_CONTEXT` if target is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or
+  ##   `EGL_GL_TEXTURE_3D`, and `context` is not a valid context.
+  ## - `r EGL_BAD_MATCH` if `target` is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or
+  ##   `EGL_GL_TEXTURE_3D`, and `context` is not a valid GL context, or does not
+  ##   match the `display`.
+  ## - `EGL_BAD_PARAMETER` if `target` is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*` or `EGL_GL_TEXTURE_3D` and buffer is not the
+  ##   name of a texture object of type `target`.
+  ## - `EGL_BAD_PARAMETER` if `target` is `EGL_GL_RENDERBUFFER` and `buffer` is
+  ##   not the name of a renderbuffer object, or if `buffer` is the name of a
+  ##   multisampled renderbuffer object.
+  ## - `EGL_BAD_PARAMETER` if `EGL_GL_TEXTURE_LEVEL` is nonzero, `target` is
+  ##   `EGL_GL_TEXTURE_2D`, `EGL_GL_TEXTURE_CUBE_MAP_*` or `EGL_GL_TEXTURE_3D`,
+  ##   and `buffer` is not the name of a complete GL texture object.
+  ## - `EGL_BAD_PARAMETER` if `EGL_GL_TEXTURE_LEVEL` is `0`, `target` is
+  ##   `EGL_GL_TEXTURE_2D`, `EGL_GL_TEXTURE_CUBE_MAP_*` or `EGL_GL_TEXTURE_3D`,
+  ##   `buffer` is the name of an incomplete GL texture object, and any mipmap
+  ##   levels other than mipmap level 0 are specified.
+  ## - `EGL_BAD_PARAMETER` if `EGL_GL_TEXTURE_LEVEL` is `0`, `target` is
+  ##   `EGL_GL_TEXTURE_2D` or `EGL_GL_TEXTURE_3D`, `buffer` is not the name of a
+  ##   complete GL texture object, and mipmap level 0 is not specified.
+  ## - `EGL_BAD_PARAMETER` if `EGL_GL_TEXTURE_LEVEL` is `0`, `target` is
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `buffer` is not the name of a complete GL
+  ##   texture object, and one or more faces do not have mipmap level 0
+  ##   specified.
+  ## - `EGL_BAD_PARAMETER` if `target` is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, `EGL_GL_RENDERBUFFER` or `EGL_GL_TEXTURE_3D`
+  ##   and `buffer` refers to the default GL texture object (0) for the
+  ##   corresponding GL target.
+  ## - `EGL_BAD_MATCH` if `target` is `EGL_GL_TEXTURE_2D`,
+  ##   `EGL_GL_TEXTURE_CUBE_MAP_*`, or `EGL_GL_TEXTURE_3D`, and the value
+  ##   specified in `attribList` for `EGL_GL_TEXTURE_LEVEL` is not a valid
+  ##   mipmap level for the specified GL texture object `buffer`.
+  ## - `EGL_BAD_PARAMETER` if `target` is `EGL_GL_TEXTURE_3D`, and the value
+  ##   specified in `attribList` for `EGL_GL_TEXTURE_ZOFFSET` exceeds the depth
+  ##   of the specified mipmap level-of-detail in `buffer`.
+  ## - `EGL_BAD_PARAMETER` if an attribute specified in `attribList` is not one
+  ##   of the supported attributes.
+  ## - `r EGL_BAD_MATCH` if an attribute specified in `attribList` is not a
+  ##   valid attribute for `target`.
+  ## - `EGL_BAD_ACCESS` if the resource specified by `display`, `context`,
+  ##   `target`, `buffer` and `attribList` has an off-screen buffer bound to it
+  ##   (e.g., by a previous call to `eglBindTexImage <#eglBindTexImage>`_).
+  ## - `EGL_BAD_ACCESS` if the resource specified by `display`, `context`,
+  ##   `target`, `buffer` and `attribList` is bound to an off-screen buffer
+  ##   (e.g., by a previous call to
+  ##   `eglCreatePbufferFromClientBuffer <#eglCreatePbufferFromClientBuffer>`_)
+  ## - `EGL_BAD_ACCESS` if the resource specified by `display`, `context`,
+  ##   `target`, `buffer` and `attribList` is itself an `EGLImage <#EGLImage>`_
+  ##   sibling.
+  ## - `EGL_BAD_ALLOC` if f insufficient memory is available to complete the
+  ##   specified operation.
+  ## - `EGL_BAD_ACCESS` if the value specified in `attribList` for
+  ##   `EGL_IMAGE_PRESERVED` is `EGL_TRUE`, and an `EGLImage <#EGLImage>`_
+  ##   handle cannot be created from the specified resource such that the pixel
+  ##   data values in `buffer` are preserved.
+
+
+proc eglDestroyImage*(display: EGLDisplay; image: EGLImage): EGLBoolean
+  {.cdecl, dynlib: dllname, importc.}
+  ## Destroy an image object.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## image
+  ##   The image to destroy.
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_DISPLAY` if `display` is not the handle of a valid
+  ##   `EGLDisplay <#EGLDisplay>`_ object.
+  ## - `EGL_BAD_PARAMETER` if `image` is not a valid `EGLImage <#EGLImage>`_
+  ##   object created with respect to `display`.
+
+
+proc eglGetPlatformDisplay*(platform: EGLenum; nativeDisplay: pointer;
+  attribList: ptr EGLAttrib): EGLDisplay {.cdecl, dynlib: dllname, importc.}
+  ## Obtain a native platform display.
+  ##
+  ## platform
+  ##   Specifies the native platform.
+  ## nativeDisplay
+  ##   Handle to a native display, i.e. pointer to an X11 display.
+  ## attribList
+  ##   Specifies the list of desired display attributes
+  ## result
+  ##   The display, or `EGL_NO_DISPLAY` if no matching display is available, or
+  ##   on error.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_PARAMETER` if `platform` has an invalid value.
+
+
+proc eglCreatePlatformWindowSurface*(display: EGLDisplay; config: EGLConfig;
+  nativeWindow: pointer; attribList: ptr EGLAttrib): EGLSurface
+  {.cdecl, dynlib: dllname, importc.}
+  ## Create an onscreen EGLSurface.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## config
+  ##   Specifies the color and ancillary buffer configuration for the surface.
+  ## nativeWindow
+  ##   A native window that must belong to the same platform as `display`.
+  ## attribList
+  ##   Specifies the attributes for the window.
+  ## result
+  ##   A handle to the created surface, or `EGL_NO_SURFACE` on error.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_MATCH` if the pixel format of `nativeWindow` does not correspond
+  ##   to the format, type, and size of the color buffers required by `config`.
+  ## - `EGL_BAD_MATCH` if `config` does not support rendering to windows (the
+  ##   `EGL_SURFACE_TYPE` attribute does not contain `EGL_WINDOW_BIT`).
+  ## - `EGL_BAD_MATCH` if `config` does not support the OpenVG colorspace or
+  ##   alpha format attributes specified in `attribList` (as defined for
+  ##   `eglCreatePlatformWindowSurface <#eglCreatePlatformWindowSurface>`_).
+  ## - `EGL_BAD_CONFIG` if `config` is not a valid `EGLConfig <#EGLConfig>`_.
+  ## - `EGL_BAD_NATIVE_WINDOW` if `nativeWindow` is not a valid native window
+  ##   handle
+  ## - `EGL_BAD_ALLOC` if there is already an `EGLSurface <#EGLSurface>`_
+  ##   associated with `nativeWindow` (as a result of a previous call to
+  ##   `eglCreatePlatformWindowSurface`).
+  ## - `EGL_BAD_ALLOC` if the implementation cannot allocate resources for the
+  ##   new EGL window.
+
+
+proc eglCreatePlatformPixmapSurface*(display: EGLDisplay; config: EGLConfig;
+  nativePixmap: pointer; attribList: ptr EGLAttrib): EGLSurface
+  {.cdecl, dynlib: dllname, importc.}
+  ## Create an offscreen EGLSurface.
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## config
+  ##   Specifies the color and ancillary buffer configuration for the surface.
+  ## nativePixmap
+  ##   A native pixmap that must belong to the same platform as `display`.
+  ## attribList
+  ##   Specifies the attributes for the pixmap.
+  ## result
+  ##   A handle to the created surface, or `EGL_NO_SURFACE` on error.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_MATCH` if the attributes of `nativePixmap` do not correspond to
+  ##   `config`.
+  ## - `EGL_BAD_MATCH` if `config` does not support rendering to pixmaps (the
+  ##   `EGL_SURFACE_TYPE` attribute does not contain `EGL_PIXMAP_BIT`).
+  ## - `EGL_BAD_MATCH` if `config` does not support the colorspace or alpha
+  ##   format attributes specified in `attribList` (as defined for
+  ##   `eglCreatePlatformWindowSurface <#eglCreatePlatformWindowSurface>`_).
+  ## - `EGL_BAD_CONFIG` if `config` is not a valid `EGLConfig <#EGLConfig>`_.
+  ## - `EGL_BAD_NATIVE_PIXMAP` if `pixmap` is not a valid native pixmap handle.
+  ## - `EGL_BAD_ALLOC` if there is already an `EGLSurface <#EGLSurface>`_
+  ##   associated with `nativePixmap` (as a result of a previous call to
+  ##   `eglCreatePlatformPixmapSurface`).
+  ## - `EGL_BAD_ALLOC` if the implementation cannot allocate resources for the
+  ##   new EGL pixmap.
+
+
+proc eglWaitSync*(display: EGLDisplay; sync: EGLSync; flags: EGLint): EGLBoolean
+  {.cdecl, dynlib: dllname, importc.}
+  ## Check whether a sync object is signaled (without blocking the application).
+  ##
+  ## display
+  ##   Specifies the EGL display connection.
+  ## sync
+  ##   The sync object to check.
+  ## flags
+  ##   Must be `0`.
+  ##
+  ## result
+  ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
+  ##
+  ## The following error codes may be generated:
+  ## - `EGL_BAD_MATCH` if the current context for the currently bound client API
+  ##   does not support server waits.
+  ## - `EGL_BAD_MATCH` if no context is current for the currently bound client
+  ##   API (i.e., `eglGetCurrentContext <#eglGetCurrentContext>`_ returns
+  ##   `EGL_NO_CONTEXT`)
+  ## - `EGL_BAD_PARAMETER` if `sync` is not a valid sync object.
+  ## - `EGL_BAD_PARAMETER` if `flags` is not `0`.
