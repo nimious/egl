@@ -9,10 +9,7 @@ Nim bindings for EGL, the native platform interface for rendering APIs.
 
 io-egl contains bindings to *Khronos EGL* for the [Nim](http://nim-lang.org)
 programming language. EGL is an interface between Khronos rendering APIs such as
-OpenGL ES or OpenVG and the underlying native platform window system. It handles
-graphics context management, surface/buffer binding, and rendering
-synchronization and enables high-performance, accelerated, mixed-mode 2D and 3D
-rendering using other Khronos APIs.
+*OpenGL ES* or *OpenVG* and the underlying native platform window system.
 
 
 ## Supported Platforms
@@ -38,7 +35,7 @@ box, and an emulator needs to be installed. We have tested this package with the
 ## Dependencies
 
 io-egl depends on [nim-lang/x11](https://github.com/nim-lang/x11) for FreeBSD,
-Linux, OpenBSD and Unix variants. It can be acquired via `nimble`, i.e.
+Linux, OpenBSD and Unix variants. It can be acquired via *nimble*, i.e.
 
 ```nimble install x11```
 
