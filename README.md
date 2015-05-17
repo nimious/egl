@@ -7,26 +7,50 @@ Nim bindings for EGL, the native platform interface for rendering APIs.
 
 ## About
 
-TODO
+io-egl contains bindings to *Khronos EGL* for the [Nim](http://nim-lang.org)
+programming language. EGL is an interface between Khronos rendering APIs such as
+OpenGL ES or OpenVG and the underlying native platform window system. It handles
+graphics context management, surface/buffer binding, and rendering
+synchronization and enables high-performance, accelerated, mixed-mode 2D and 3D
+rendering using other Khronos APIs.
+
 
 ## Supported Platforms
 
-TODO
+- ~~Android~~
+- ~~FreeBSD~~
+- ~~iOS~~
+- ~~Linux~~
+- ~~OpenBSD~~
+- ~~MacOS X~~
+- Windows
 
 
 ## Prerequisites
 
-TODO
+### Windows
+
+The latest versions of Windows do not include support for OpenGL ES out of the
+box, and an emulator needs to be installed. We have tested this package with the
+*ARM MALI OpenGL ES Emulator* (see link below). Other emulators may work as well.
 
 
 ## Dependencies
 
-io-egl does not have any dependencies to other Nim packages at this time.
+io-egl depends on [nim-lang/x11](https://github.com/nim-lang/x11) for FreeBSD,
+Linux, OpenBSD and Unix variants. It can be acquired via `nimble`, i.e.
+
+```nimble install x11```
 
 
 ## Usage
 
-TODO
+Import the *egl* module from this package to make the bindings available in your
+project:
+
+```nimrod
+import egl
+```
 
 
 ## Support
@@ -38,6 +62,7 @@ or email us at info@nimio.us if this package is out of date or contains bugs.
 
 ## References
 
+* [ARM MALI OpenGL ES Emulator for Windows](http://malideveloper.arm.com/develop-for-mali/tools/software-tools/opengl-es-emulator/)
 * [Khronos EGL Homepage](https://www.khronos.org/egl/)
 * [Khronos EGL Registry](https://www.khronos.org/registry/egl/)
 * [Nim Programming Language](http://nim-lang.org/)
