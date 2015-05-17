@@ -29,7 +29,7 @@ elif defined(android):
   #  EGLNativeDisplayType* = pointer
   #  EGLNativePixmapType* = pointer
   #  EGLNativeWindowType* = ptr ANativeWindow
-  {.error: "io-serialport does not support Android yet".}
+  {.error: "io-egl does not support Android yet".}
 
 elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
   import xlib, xutil
@@ -40,7 +40,7 @@ elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
     EGLNativeWindowType* = TWindow
 
 else:
-  {.error: "io-serialport does not support this platform".}
+  {.error: "io-egl does not support this platform".}
 
 
 type
