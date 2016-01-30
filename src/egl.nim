@@ -1,4 +1,4 @@
-## *io-egl* - Nim bindings for EGL, the native platform interface for rendering
+## *egl* - Nim bindings for EGL, the native platform interface for rendering
 ## APIs.
 ##
 ## This file is part of the `Nim I/O <http://nimio.us>`_ package collection.
@@ -29,7 +29,7 @@ elif defined(android):
   #  EGLNativeDisplayType* = pointer
   #  EGLNativePixmapType* = pointer
   #  EGLNativeWindowType* = ptr ANativeWindow
-  {.error: "io-egl does not support Android yet".}
+  {.error: "egl does not support Android yet".}
 
 elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
   import xlib, xutil
@@ -40,7 +40,7 @@ elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
     EGLNativeWindowType* = TWindow
 
 else:
-  {.error: "io-egl does not support this platform".}
+  {.error: "egl does not support this platform".}
 
 
 type

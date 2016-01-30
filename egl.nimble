@@ -1,5 +1,5 @@
 [Package]
-name: "io-egl"
+name: "egl"
 version: "0.1"
 author: "Gerke Max Preussner <info@nimio.us>"
 description: "Bindings for EGL, the native platform interface for rendering APIs"

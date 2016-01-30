@@ -1,4 +1,4 @@
-## *io-egl* - Nim bindings for EGL, the native platform interface for rendering
+## *egl* - Nim bindings for EGL, the native platform interface for rendering
 ## APIs.
 ##
 ## This file is part of the `Nim I/O <http://nimio.us>`_ package collection.

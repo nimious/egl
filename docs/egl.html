@@ -10,8 +10,8 @@
 <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAUAAAAF////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAIAAABbAAAAlQAAAKIAAACbAAAAmwAAAKIAAACVAAAAWwAAAAL///8A////AP///wD///8A////AAAAABQAAADAAAAAYwAAAA3///8A////AP///wD///8AAAAADQAAAGMAAADAAAAAFP///wD///8A////AP///wAAAACdAAAAOv///wD///8A////AP///wD///8A////AP///wD///8AAAAAOgAAAJ3///8A////AP///wAAAAAnAAAAcP///wAAAAAoAAAASv///wD///8A////AP///wAAAABKAAAAKP///wAAAABwAAAAJ////wD///8AAAAAgQAAABwAAACIAAAAkAAAAJMAAACtAAAAFQAAABUAAACtAAAAkwAAAJAAAACIAAAAHAAAAIH///8A////AAAAAKQAAACrAAAAaP///wD///8AAAAARQAAANIAAADSAAAARf///wD///8AAAAAaAAAAKsAAACk////AAAAADMAAACcAAAAnQAAABj///8A////AP///wAAAAAYAAAAGP///wD///8A////AAAAABgAAACdAAAAnAAAADMAAAB1AAAAwwAAAP8AAADpAAAAsQAAAE4AAAAb////AP///wAAAAAbAAAATgAAALEAAADpAAAA/wAAAMMAAAB1AAAAtwAAAOkAAAD/AAAA/wAAAP8AAADvAAAA3gAAAN4AAADeAAAA3gAAAO8AAAD/AAAA/wAAAP8AAADpAAAAtwAAAGUAAAA/AAAA3wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADfAAAAPwAAAGX///8A////AAAAAEgAAADtAAAAvwAAAL0AAADGAAAA7wAAAO8AAADGAAAAvQAAAL8AAADtAAAASP///wD///8A////AP///wD///8AAAAAO////wD///8A////AAAAAIcAAACH////AP///wD///8AAAAAO////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD4HwAA7/cAAN/7AAD//wAAoYUAAJ55AACf+QAAh+EAAAAAAADAAwAA4AcAAP5/AAD//wAA//8AAA=="/>
 
 <!-- Google fonts -->
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,600,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,600,900' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
 <title>Module egl</title>
@@ -53,7 +53,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #2d2d2d;
+  color: #666;
   background-color: rgba(252, 248, 244, 0.75); }
 
 /* Skeleton grid */
@@ -361,13 +361,13 @@ h1 {
   font-size: 2em;
   padding-bottom: .15em;
   border-bottom: 1px solid #aaaaaa;
-  margin-top: 1.25em;
+  margin-top: 1.0em;
   line-height: 1.2em; }
 
 h1.title {
+  padding-bottom: 1em;
   border-bottom: 0px;
-  font-size: 2.75em;
-  margin: 0.5em 0 1em 0; }
+  font-size: 2.75em; }
 
 h2 {
   font-size: 1.5em;
@@ -404,7 +404,6 @@ li {
   line-height: 20px; }
 
 dl {
-  margin-top: 10px;
   margin-bottom: 20px; }
 
 dt,
@@ -412,7 +411,7 @@ dd {
   line-height: 20px; }
 
 dt {
-  font-weight: 600; }
+  font-weight: bold; }
 
 dd {
   margin-left: 10px;
@@ -421,7 +420,8 @@ dd {
 hr {
   margin: 20px 0;
   border: 0;
-  border-bottom: 1px solid #aaaaaa; }
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff; }
 
 abbr[title],
 abbr[data-original-title] {
@@ -489,7 +489,7 @@ pre {
   box-sizing: border-box;
   min-width: calc(100% - 19.5px);
   padding: 9.5px;
-  margin: 0 10px 0px 10px;
+  margin: 0.25em 10px 0.25em 10px;
   font-size: 14px;
   line-height: 20px;
   white-space: pre !important;
@@ -892,6 +892,10 @@ div.align-right {
 
 /* div.align-center * { */
 /*   text-align: left } */
+
+ul.simple > li {
+  margin-bottom: 0.5em }
+
 ol.simple, ul.simple {
   margin-bottom: 1em; }
 
@@ -1541,33 +1545,32 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#eglChooseConfig,EGLDisplay,ptr.EGLInt,ptr.EGLConfig,EGLInt,ptr.EGLInt"
-    title="eglChooseConfig(display: EGLDisplay; attribList: ptr EGLInt; 
-                configs: ptr EGLConfig; configSize: EGLInt; 
-                numConfig: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Choose<wbr />Config</a></li>
+    title="eglChooseConfig(display: EGLDisplay; attribList: ptr EGLInt; configs: ptr EGLConfig;
+                configSize: EGLInt; numConfig: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Choose<wbr />Config</a></li>
   <li><a class="reference" href="#eglCopyBuffers,EGLDisplay,EGLSurface,EGLNativePixmapType"
-    title="eglCopyBuffers(display: EGLDisplay; surface: EGLSurface; 
+    title="eglCopyBuffers(display: EGLDisplay; surface: EGLSurface;
                nativePixmap: EGLNativePixmapType): EGLBoolean"><wbr />egl<wbr />Copy<wbr />Buffers</a></li>
   <li><a class="reference" href="#eglCreateContext,EGLDisplay,EGLConfig,EGLContext,ptr.EGLInt"
-    title="eglCreateContext(display: EGLDisplay; config: EGLConfig; 
-                 shareContext: EGLContext; attribList: ptr EGLInt): EGLContext"><wbr />egl<wbr />Create<wbr />Context</a></li>
+    title="eglCreateContext(display: EGLDisplay; config: EGLConfig; shareContext: EGLContext;
+                 attribList: ptr EGLInt): EGLContext"><wbr />egl<wbr />Create<wbr />Context</a></li>
   <li><a class="reference" href="#eglCreatePbufferSurface,EGLDisplay,EGLConfig,ptr.EGLInt"
-    title="eglCreatePbufferSurface(display: EGLDisplay; config: EGLConfig; 
+    title="eglCreatePbufferSurface(display: EGLDisplay; config: EGLConfig;
                         attribList: ptr EGLInt): EGLSurface"><wbr />egl<wbr />Create<wbr />Pbuffer<wbr />Surface</a></li>
   <li><a class="reference" href="#eglCreatePixmapSurface,EGLDisplay,EGLConfig,EGLNativePixmapType,ptr.EGLInt"
-    title="eglCreatePixmapSurface(display: EGLDisplay; config: EGLConfig; 
+    title="eglCreatePixmapSurface(display: EGLDisplay; config: EGLConfig;
                        nativePixmap: EGLNativePixmapType; attribList: ptr EGLInt): EGLSurface"><wbr />egl<wbr />Create<wbr />Pixmap<wbr />Surface</a></li>
   <li><a class="reference" href="#eglCreateWindowSurface,EGLDisplay,EGLConfig,EGLNativeWindowType,ptr.EGLInt"
-    title="eglCreateWindowSurface(display: EGLDisplay; config: EGLConfig; 
+    title="eglCreateWindowSurface(display: EGLDisplay; config: EGLConfig;
                        nativeWindow: EGLNativeWindowType; attribList: ptr EGLInt): EGLSurface"><wbr />egl<wbr />Create<wbr />Window<wbr />Surface</a></li>
   <li><a class="reference" href="#eglDestroyContext,EGLDisplay,EGLContext"
     title="eglDestroyContext(display: EGLDisplay; context: EGLContext): EGLBoolean"><wbr />egl<wbr />Destroy<wbr />Context</a></li>
   <li><a class="reference" href="#eglDestroySurface,EGLDisplay,EGLSurface"
     title="eglDestroySurface(display: EGLDisplay; surface: EGLSurface): EGLBoolean"><wbr />egl<wbr />Destroy<wbr />Surface</a></li>
   <li><a class="reference" href="#eglGetConfigAttrib,EGLDisplay,EGLConfig,EGLInt,ptr.EGLInt"
-    title="eglGetConfigAttrib(display: EGLDisplay; config: EGLConfig; attribute: EGLInt; 
+    title="eglGetConfigAttrib(display: EGLDisplay; config: EGLConfig; attribute: EGLInt;
                    value: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Get<wbr />Config<wbr />Attrib</a></li>
   <li><a class="reference" href="#eglGetConfigs,EGLDisplay,ptr.EGLConfig,EGLInt,ptr.EGLInt"
-    title="eglGetConfigs(display: EGLDisplay; configs: ptr EGLConfig; configSize: EGLInt; 
+    title="eglGetConfigs(display: EGLDisplay; configs: ptr EGLConfig; configSize: EGLInt;
               numConfig: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Get<wbr />Configs</a></li>
   <li><a class="reference" href="#eglGetCurrentDisplay,"
     title="eglGetCurrentDisplay(): EGLDisplay"><wbr />egl<wbr />Get<wbr />Current<wbr />Display</a></li>
@@ -1582,15 +1585,15 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
   <li><a class="reference" href="#eglInitialize,EGLDisplay,ptr.EGLInt,ptr.EGLInt"
     title="eglInitialize(display: EGLDisplay; major: ptr EGLInt; minor: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Initialize</a></li>
   <li><a class="reference" href="#eglMakeCurrent,EGLDisplay,EGLSurface,EGLSurface,EGLContext"
-    title="eglMakeCurrent(display: EGLDisplay; draw: EGLSurface; read: EGLSurface; 
+    title="eglMakeCurrent(display: EGLDisplay; draw: EGLSurface; read: EGLSurface;
                context: EGLContext): EGLBoolean"><wbr />egl<wbr />Make<wbr />Current</a></li>
   <li><a class="reference" href="#eglQueryContext,EGLDisplay,EGLContext,EGLInt,ptr.EGLInt"
-    title="eglQueryContext(display: EGLDisplay; context: EGLContext; attribute: EGLInt; 
+    title="eglQueryContext(display: EGLDisplay; context: EGLContext; attribute: EGLInt;
                 value: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Query<wbr />Context</a></li>
   <li><a class="reference" href="#eglQueryString,EGLDisplay,EGLInt"
     title="eglQueryString(display: EGLDisplay; name: EGLInt): cstring"><wbr />egl<wbr />Query<wbr />String</a></li>
   <li><a class="reference" href="#eglQuerySurface,EGLDisplay,EGLSurface,EGLInt,ptr.EGLInt"
-    title="eglQuerySurface(display: EGLDisplay; surface: EGLSurface; attribute: EGLInt; 
+    title="eglQuerySurface(display: EGLDisplay; surface: EGLSurface; attribute: EGLInt;
                 value: ptr EGLInt): EGLBoolean"><wbr />egl<wbr />Query<wbr />Surface</a></li>
   <li><a class="reference" href="#eglSwapBuffers,EGLDisplay,EGLSurface"
     title="eglSwapBuffers(display: EGLDisplay; surface: EGLSurface): EGLBoolean"><wbr />egl<wbr />Swap<wbr />Buffers</a></li>
@@ -1605,7 +1608,7 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
   <li><a class="reference" href="#eglReleaseTexImage,EGLDisplay,EGLSurface,EGLInt"
     title="eglReleaseTexImage(display: EGLDisplay; surface: EGLSurface; buffer: EGLInt): EGLBoolean"><wbr />egl<wbr />Release<wbr />Tex<wbr />Image</a></li>
   <li><a class="reference" href="#eglSurfaceAttrib,EGLDisplay,EGLSurface,EGLInt,EGLInt"
-    title="eglSurfaceAttrib(display: EGLDisplay; surface: EGLSurface; attribute: EGLInt; 
+    title="eglSurfaceAttrib(display: EGLDisplay; surface: EGLSurface; attribute: EGLInt;
                  value: EGLInt): EGLBoolean"><wbr />egl<wbr />Surface<wbr />Attrib</a></li>
   <li><a class="reference" href="#eglSwapInterval,EGLDisplay,EGLInt"
     title="eglSwapInterval(display: EGLDisplay; interval: EGLInt): EGLBoolean"><wbr />egl<wbr />Swap<wbr />Interval</a></li>
@@ -1614,8 +1617,8 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
   <li><a class="reference" href="#eglQueryAPI,"
     title="eglQueryAPI(): EGLenum"><wbr />egl<wbr />Query<wbr />API</a></li>
   <li><a class="reference" href="#eglCreatePbufferFromClientBuffer,EGLDisplay,EGLenum,EGLClientBuffer,EGLConfig,ptr.EGLInt"
-    title="eglCreatePbufferFromClientBuffer(display: EGLDisplay; buftype: EGLenum; 
-                                 buffer: EGLClientBuffer; config: EGLConfig; 
+    title="eglCreatePbufferFromClientBuffer(display: EGLDisplay; buftype: EGLenum;
+                                 buffer: EGLClientBuffer; config: EGLConfig;
                                  attribList: ptr EGLInt): EGLSurface"><wbr />egl<wbr />Create<wbr />Pbuffer<wbr />From<wbr />Client<wbr />Buffer</a></li>
   <li><a class="reference" href="#eglReleaseThread,"
     title="eglReleaseThread(): EGLBoolean"><wbr />egl<wbr />Release<wbr />Thread</a></li>
@@ -1628,24 +1631,23 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
   <li><a class="reference" href="#eglDestroySync,EGLDisplay,EGLSync"
     title="eglDestroySync(display: EGLDisplay; sync: EGLSync): EGLBoolean"><wbr />egl<wbr />Destroy<wbr />Sync</a></li>
   <li><a class="reference" href="#eglClientWaitSync,EGLDisplay,EGLSync,EGLInt,EGLTime"
-    title="eglClientWaitSync(display: EGLDisplay; sync: EGLSync; flags: EGLInt; 
-                  timeout: EGLTime): EGLInt"><wbr />egl<wbr />Client<wbr />Wait<wbr />Sync</a></li>
+    title="eglClientWaitSync(display: EGLDisplay; sync: EGLSync; flags: EGLInt; timeout: EGLTime): EGLInt"><wbr />egl<wbr />Client<wbr />Wait<wbr />Sync</a></li>
   <li><a class="reference" href="#eglGetSyncAttrib,EGLDisplay,EGLSync,EGLInt,ptr.EGLAttrib"
-    title="eglGetSyncAttrib(display: EGLDisplay; sync: EGLSync; attribute: EGLInt; 
+    title="eglGetSyncAttrib(display: EGLDisplay; sync: EGLSync; attribute: EGLInt;
                  value: ptr EGLAttrib): EGLBoolean"><wbr />egl<wbr />Get<wbr />Sync<wbr />Attrib</a></li>
   <li><a class="reference" href="#eglCreateImage,EGLDisplay,EGLContext,EGLenum,EGLClientBuffer,ptr.EGLAttrib"
-    title="eglCreateImage(display: EGLDisplay; context: EGLContext; target: EGLenum; 
+    title="eglCreateImage(display: EGLDisplay; context: EGLContext; target: EGLenum;
                buffer: EGLClientBuffer; attribList: ptr EGLAttrib): EGLImage"><wbr />egl<wbr />Create<wbr />Image</a></li>
   <li><a class="reference" href="#eglDestroyImage,EGLDisplay,EGLImage"
     title="eglDestroyImage(display: EGLDisplay; image: EGLImage): EGLBoolean"><wbr />egl<wbr />Destroy<wbr />Image</a></li>
   <li><a class="reference" href="#eglGetPlatformDisplay,EGLenum,pointer,ptr.EGLAttrib"
-    title="eglGetPlatformDisplay(platform: EGLenum; nativeDisplay: pointer; 
+    title="eglGetPlatformDisplay(platform: EGLenum; nativeDisplay: pointer;
                       attribList: ptr EGLAttrib): EGLDisplay"><wbr />egl<wbr />Get<wbr />Platform<wbr />Display</a></li>
   <li><a class="reference" href="#eglCreatePlatformWindowSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"
-    title="eglCreatePlatformWindowSurface(display: EGLDisplay; config: EGLConfig; 
+    title="eglCreatePlatformWindowSurface(display: EGLDisplay; config: EGLConfig;
                                nativeWindow: pointer; attribList: ptr EGLAttrib): EGLSurface"><wbr />egl<wbr />Create<wbr />Platform<wbr />Window<wbr />Surface</a></li>
   <li><a class="reference" href="#eglCreatePlatformPixmapSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"
-    title="eglCreatePlatformPixmapSurface(display: EGLDisplay; config: EGLConfig; 
+    title="eglCreatePlatformPixmapSurface(display: EGLDisplay; config: EGLConfig;
                                nativePixmap: pointer; attribList: ptr EGLAttrib): EGLSurface"><wbr />egl<wbr />Create<wbr />Platform<wbr />Pixmap<wbr />Surface</a></li>
   <li><a class="reference" href="#eglWaitSync,EGLDisplay,EGLSync,EGLInt"
     title="eglWaitSync(display: EGLDisplay; sync: EGLSync; flags: EGLInt): EGLBoolean"><wbr />egl<wbr />Wait<wbr />Sync</a></li>
@@ -1657,7 +1659,7 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
 
   </div>
   <div class="nine columns" id="content">
-  <p class="module-desc"><p><em>io-egl</em> - Nim bindings for EGL, the native platform interface for rendering APIs.</p>
+  <p class="module-desc"><p><em>egl</em> - Nim bindings for EGL, the native platform interface for rendering APIs.</p>
 <p>This file is part of the <a class="reference external" href="http://nimio.us">Nim I/O</a> package collection. See the file LICENSE included in this distribution for licensing details. GitHub pull requests are encouraged. (c) 2015 Headcrash Industries LLC.</p>
 </p>
   <div class="section" id="6">
@@ -1672,140 +1674,140 @@ dt pre > span.Operator ~ span.Identifier, dt pre > span.Operator ~ span.Operator
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L17"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L17"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLNativePixmapType"><a name="EGLNativePixmapType"></a><pre><span class="Identifier">EGLNativePixmapType</span> <span class="Other">=</span> <span class="Identifier">HBITMAP</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L18"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L18"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLNativeWindowType"><a name="EGLNativeWindowType"></a><pre><span class="Identifier">EGLNativeWindowType</span> <span class="Other">=</span> <span class="Identifier">HWND</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L19"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L19"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="NativeDisplayType"><a name="NativeDisplayType"></a><pre><span class="Identifier">NativeDisplayType</span> <span class="Other">=</span> <span class="Identifier">EGLNativeDisplayType</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L48"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L48"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="NativePixmapType"><a name="NativePixmapType"></a><pre><span class="Identifier">NativePixmapType</span> <span class="Other">=</span> <span class="Identifier">EGLNativePixmapType</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L49"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L49"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="NativeWindowType"><a name="NativeWindowType"></a><pre><span class="Identifier">NativeWindowType</span> <span class="Other">=</span> <span class="Identifier">EGLNativeWindowType</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L50"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L50"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLInt"><a name="EGLInt"></a><pre><span class="Identifier">EGLInt</span> <span class="Other">=</span> <span class="Identifier">int</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L58"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L58"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLBoolean"><a name="EGLBoolean"></a><pre><span class="Identifier">EGLBoolean</span> <span class="Other">=</span> <span class="Identifier">cuint</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L62"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L62"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLDisplay"><a name="EGLDisplay"></a><pre><span class="Identifier">EGLDisplay</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L63"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L63"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLConfig"><a name="EGLConfig"></a><pre><span class="Identifier">EGLConfig</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L64"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L64"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLSurface"><a name="EGLSurface"></a><pre><span class="Identifier">EGLSurface</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L65"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L65"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLContext"><a name="EGLContext"></a><pre><span class="Identifier">EGLContext</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L66"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L66"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLAttribList"><a name="EGLAttribList"></a><pre><span class="Identifier">EGLAttribList</span> <span class="Other">=</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">EGLInt</span><span class="Other">]</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L70"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L70"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLMustCastToProperProcType"><a name="EGLMustCastToProperProcType"></a><pre><span class="Identifier">EGLMustCastToProperProcType</span> <span class="Other">=</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Other">)</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L71"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L71"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLenum"><a name="EGLenum"></a><pre><span class="Identifier">EGLenum</span> <span class="Other">=</span> <span class="Identifier">cuint</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L826"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L826"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLClientBuffer"><a name="EGLClientBuffer"></a><pre><span class="Identifier">EGLClientBuffer</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L827"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L827"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLSync"><a name="EGLSync"></a><pre><span class="Identifier">EGLSync</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1001"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1001"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLAttrib"><a name="EGLAttrib"></a><pre><span class="Identifier">EGLAttrib</span> <span class="Other">=</span> <span class="Identifier">csize</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1002"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1002"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLTime"><a name="EGLTime"></a><pre><span class="Identifier">EGLTime</span> <span class="Other">=</span> <span class="Identifier">culonglong</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1003"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1003"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGLImage"><a name="EGLImage"></a><pre><span class="Identifier">EGLImage</span> <span class="Other">=</span> <span class="Identifier">pointer</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1004"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1004"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 
@@ -1817,1155 +1819,1155 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L75"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L75"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_ACCESS"><a name="EGL_BAD_ACCESS"></a><pre><span class="Identifier">EGL_BAD_ACCESS</span> <span class="Other">=</span> <span class="DecNumber">0x00003002</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L76"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L76"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_ALLOC"><a name="EGL_BAD_ALLOC"></a><pre><span class="Identifier">EGL_BAD_ALLOC</span> <span class="Other">=</span> <span class="DecNumber">0x00003003</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L77"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L77"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_ATTRIBUTE"><a name="EGL_BAD_ATTRIBUTE"></a><pre><span class="Identifier">EGL_BAD_ATTRIBUTE</span> <span class="Other">=</span> <span class="DecNumber">0x00003004</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L78"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L78"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_CONFIG"><a name="EGL_BAD_CONFIG"></a><pre><span class="Identifier">EGL_BAD_CONFIG</span> <span class="Other">=</span> <span class="DecNumber">0x00003005</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L79"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L79"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_CONTEXT"><a name="EGL_BAD_CONTEXT"></a><pre><span class="Identifier">EGL_BAD_CONTEXT</span> <span class="Other">=</span> <span class="DecNumber">0x00003006</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L80"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L80"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_CURRENT_SURFACE"><a name="EGL_BAD_CURRENT_SURFACE"></a><pre><span class="Identifier">EGL_BAD_CURRENT_SURFACE</span> <span class="Other">=</span> <span class="DecNumber">0x00003007</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L81"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L81"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_DISPLAY"><a name="EGL_BAD_DISPLAY"></a><pre><span class="Identifier">EGL_BAD_DISPLAY</span> <span class="Other">=</span> <span class="DecNumber">0x00003008</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L82"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L82"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_MATCH"><a name="EGL_BAD_MATCH"></a><pre><span class="Identifier">EGL_BAD_MATCH</span> <span class="Other">=</span> <span class="DecNumber">0x00003009</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L83"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L83"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_NATIVE_PIXMAP"><a name="EGL_BAD_NATIVE_PIXMAP"></a><pre><span class="Identifier">EGL_BAD_NATIVE_PIXMAP</span> <span class="Other">=</span> <span class="DecNumber">0x0000300A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L84"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L84"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_NATIVE_WINDOW"><a name="EGL_BAD_NATIVE_WINDOW"></a><pre><span class="Identifier">EGL_BAD_NATIVE_WINDOW</span> <span class="Other">=</span> <span class="DecNumber">0x0000300B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L85"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_PARAMETER"><a name="EGL_BAD_PARAMETER"></a><pre><span class="Identifier">EGL_BAD_PARAMETER</span> <span class="Other">=</span> <span class="DecNumber">0x0000300C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L86"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L86"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BAD_SURFACE"><a name="EGL_BAD_SURFACE"></a><pre><span class="Identifier">EGL_BAD_SURFACE</span> <span class="Other">=</span> <span class="DecNumber">0x0000300D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L87"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L87"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BLUE_SIZE"><a name="EGL_BLUE_SIZE"></a><pre><span class="Identifier">EGL_BLUE_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003022</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L88"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L88"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BUFFER_SIZE"><a name="EGL_BUFFER_SIZE"></a><pre><span class="Identifier">EGL_BUFFER_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003020</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L89"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L89"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONFIG_CAVEAT"><a name="EGL_CONFIG_CAVEAT"></a><pre><span class="Identifier">EGL_CONFIG_CAVEAT</span> <span class="Other">=</span> <span class="DecNumber">0x00003027</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L90"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L90"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONFIG_ID"><a name="EGL_CONFIG_ID"></a><pre><span class="Identifier">EGL_CONFIG_ID</span> <span class="Other">=</span> <span class="DecNumber">0x00003028</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L91"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L91"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CORE_NATIVE_ENGINE"><a name="EGL_CORE_NATIVE_ENGINE"></a><pre><span class="Identifier">EGL_CORE_NATIVE_ENGINE</span> <span class="Other">=</span> <span class="DecNumber">0x0000305B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L92"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L92"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_DEPTH_SIZE"><a name="EGL_DEPTH_SIZE"></a><pre><span class="Identifier">EGL_DEPTH_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003025</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L93"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L93"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_DONT_CARE"><a name="EGL_DONT_CARE"></a><pre><span class="Identifier">EGL_DONT_CARE</span> <span class="Other">=</span> <span class="DecNumber">-1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L94"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L94"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_DRAW"><a name="EGL_DRAW"></a><pre><span class="Identifier">EGL_DRAW</span> <span class="Other">=</span> <span class="DecNumber">0x00003059</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L95"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L95"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_EXTENSIONS"><a name="EGL_EXTENSIONS"></a><pre><span class="Identifier">EGL_EXTENSIONS</span> <span class="Other">=</span> <span class="DecNumber">0x00003055</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L96"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L96"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_FALSE"><a name="EGL_FALSE"></a><pre><span class="Identifier">EGL_FALSE</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L97"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L97"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GREEN_SIZE"><a name="EGL_GREEN_SIZE"></a><pre><span class="Identifier">EGL_GREEN_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003023</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L98"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L98"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_HEIGHT"><a name="EGL_HEIGHT"></a><pre><span class="Identifier">EGL_HEIGHT</span> <span class="Other">=</span> <span class="DecNumber">0x00003056</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L99"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L99"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_LARGEST_PBUFFER"><a name="EGL_LARGEST_PBUFFER"></a><pre><span class="Identifier">EGL_LARGEST_PBUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x00003058</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L100"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L100"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_LEVEL"><a name="EGL_LEVEL"></a><pre><span class="Identifier">EGL_LEVEL</span> <span class="Other">=</span> <span class="DecNumber">0x00003029</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L101"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L101"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MAX_PBUFFER_HEIGHT"><a name="EGL_MAX_PBUFFER_HEIGHT"></a><pre><span class="Identifier">EGL_MAX_PBUFFER_HEIGHT</span> <span class="Other">=</span> <span class="DecNumber">0x0000302A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L102"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L102"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MAX_PBUFFER_PIXELS"><a name="EGL_MAX_PBUFFER_PIXELS"></a><pre><span class="Identifier">EGL_MAX_PBUFFER_PIXELS</span> <span class="Other">=</span> <span class="DecNumber">0x0000302B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L103"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L103"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MAX_PBUFFER_WIDTH"><a name="EGL_MAX_PBUFFER_WIDTH"></a><pre><span class="Identifier">EGL_MAX_PBUFFER_WIDTH</span> <span class="Other">=</span> <span class="DecNumber">0x0000302C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L104"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L104"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NATIVE_RENDERABLE"><a name="EGL_NATIVE_RENDERABLE"></a><pre><span class="Identifier">EGL_NATIVE_RENDERABLE</span> <span class="Other">=</span> <span class="DecNumber">0x0000302D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L105"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L105"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NATIVE_VISUAL_ID"><a name="EGL_NATIVE_VISUAL_ID"></a><pre><span class="Identifier">EGL_NATIVE_VISUAL_ID</span> <span class="Other">=</span> <span class="DecNumber">0x0000302E</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L106"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L106"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NATIVE_VISUAL_TYPE"><a name="EGL_NATIVE_VISUAL_TYPE"></a><pre><span class="Identifier">EGL_NATIVE_VISUAL_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x0000302F</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L107"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L107"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NONE"><a name="EGL_NONE"></a><pre><span class="Identifier">EGL_NONE</span> <span class="Other">=</span> <span class="DecNumber">0x00003038</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L108"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L108"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NON_CONFORMANT_CONFIG"><a name="EGL_NON_CONFORMANT_CONFIG"></a><pre><span class="Identifier">EGL_NON_CONFORMANT_CONFIG</span> <span class="Other">=</span> <span class="DecNumber">0x00003051</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L109"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L109"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NOT_INITIALIZED"><a name="EGL_NOT_INITIALIZED"></a><pre><span class="Identifier">EGL_NOT_INITIALIZED</span> <span class="Other">=</span> <span class="DecNumber">0x00003001</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L110"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L110"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_CONTEXT"><a name="EGL_NO_CONTEXT"></a><pre><span class="Identifier">EGL_NO_CONTEXT</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L111"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L111"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_DISPLAY"><a name="EGL_NO_DISPLAY"></a><pre><span class="Identifier">EGL_NO_DISPLAY</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L112"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L112"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_SURFACE"><a name="EGL_NO_SURFACE"></a><pre><span class="Identifier">EGL_NO_SURFACE</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L113"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L113"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_PBUFFER_BIT"><a name="EGL_PBUFFER_BIT"></a><pre><span class="Identifier">EGL_PBUFFER_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000001</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L114"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L114"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_PIXMAP_BIT"><a name="EGL_PIXMAP_BIT"></a><pre><span class="Identifier">EGL_PIXMAP_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000002</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L115"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L115"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_READ"><a name="EGL_READ"></a><pre><span class="Identifier">EGL_READ</span> <span class="Other">=</span> <span class="DecNumber">0x0000305A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L116"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L116"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_RED_SIZE"><a name="EGL_RED_SIZE"></a><pre><span class="Identifier">EGL_RED_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003024</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L117"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L117"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SAMPLES"><a name="EGL_SAMPLES"></a><pre><span class="Identifier">EGL_SAMPLES</span> <span class="Other">=</span> <span class="DecNumber">0x00003031</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L118"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L118"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SAMPLE_BUFFERS"><a name="EGL_SAMPLE_BUFFERS"></a><pre><span class="Identifier">EGL_SAMPLE_BUFFERS</span> <span class="Other">=</span> <span class="DecNumber">0x00003032</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L119"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L119"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SLOW_CONFIG"><a name="EGL_SLOW_CONFIG"></a><pre><span class="Identifier">EGL_SLOW_CONFIG</span> <span class="Other">=</span> <span class="DecNumber">0x00003050</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L120"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L120"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_STENCIL_SIZE"><a name="EGL_STENCIL_SIZE"></a><pre><span class="Identifier">EGL_STENCIL_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x00003026</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L121"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L121"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SUCCESS"><a name="EGL_SUCCESS"></a><pre><span class="Identifier">EGL_SUCCESS</span> <span class="Other">=</span> <span class="DecNumber">0x00003000</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L122"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L122"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SURFACE_TYPE"><a name="EGL_SURFACE_TYPE"></a><pre><span class="Identifier">EGL_SURFACE_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x00003033</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L123"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L123"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRANSPARENT_BLUE_VALUE"><a name="EGL_TRANSPARENT_BLUE_VALUE"></a><pre><span class="Identifier">EGL_TRANSPARENT_BLUE_VALUE</span> <span class="Other">=</span> <span class="DecNumber">0x00003035</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L124"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L124"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRANSPARENT_GREEN_VALUE"><a name="EGL_TRANSPARENT_GREEN_VALUE"></a><pre><span class="Identifier">EGL_TRANSPARENT_GREEN_VALUE</span> <span class="Other">=</span> <span class="DecNumber">0x00003036</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L125"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L125"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRANSPARENT_RED_VALUE"><a name="EGL_TRANSPARENT_RED_VALUE"></a><pre><span class="Identifier">EGL_TRANSPARENT_RED_VALUE</span> <span class="Other">=</span> <span class="DecNumber">0x00003037</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L126"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L126"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRANSPARENT_RGB"><a name="EGL_TRANSPARENT_RGB"></a><pre><span class="Identifier">EGL_TRANSPARENT_RGB</span> <span class="Other">=</span> <span class="DecNumber">0x00003052</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L127"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L127"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRANSPARENT_TYPE"><a name="EGL_TRANSPARENT_TYPE"></a><pre><span class="Identifier">EGL_TRANSPARENT_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x00003034</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L128"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L128"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TRUE"><a name="EGL_TRUE"></a><pre><span class="Identifier">EGL_TRUE</span> <span class="Other">=</span> <span class="DecNumber">1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L129"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L129"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VENDOR"><a name="EGL_VENDOR"></a><pre><span class="Identifier">EGL_VENDOR</span> <span class="Other">=</span> <span class="DecNumber">0x00003053</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L130"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L130"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VERSION"><a name="EGL_VERSION"></a><pre><span class="Identifier">EGL_VERSION</span> <span class="Other">=</span> <span class="DecNumber">0x00003054</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L131"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L131"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_WIDTH"><a name="EGL_WIDTH"></a><pre><span class="Identifier">EGL_WIDTH</span> <span class="Other">=</span> <span class="DecNumber">0x00003057</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L132"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L132"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_WINDOW_BIT"><a name="EGL_WINDOW_BIT"></a><pre><span class="Identifier">EGL_WINDOW_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000004</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L133"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L133"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BACK_BUFFER"><a name="EGL_BACK_BUFFER"></a><pre><span class="Identifier">EGL_BACK_BUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x00003084</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L713"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L713"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BIND_TO_TEXTURE_RGB"><a name="EGL_BIND_TO_TEXTURE_RGB"></a><pre><span class="Identifier">EGL_BIND_TO_TEXTURE_RGB</span> <span class="Other">=</span> <span class="DecNumber">0x00003039</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L714"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L714"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BIND_TO_TEXTURE_RGBA"><a name="EGL_BIND_TO_TEXTURE_RGBA"></a><pre><span class="Identifier">EGL_BIND_TO_TEXTURE_RGBA</span> <span class="Other">=</span> <span class="DecNumber">0x0000303A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L715"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L715"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_LOST"><a name="EGL_CONTEXT_LOST"></a><pre><span class="Identifier">EGL_CONTEXT_LOST</span> <span class="Other">=</span> <span class="DecNumber">0x0000300E</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L716"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L716"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MIN_SWAP_INTERVAL"><a name="EGL_MIN_SWAP_INTERVAL"></a><pre><span class="Identifier">EGL_MIN_SWAP_INTERVAL</span> <span class="Other">=</span> <span class="DecNumber">0x0000303B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L717"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L717"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MAX_SWAP_INTERVAL"><a name="EGL_MAX_SWAP_INTERVAL"></a><pre><span class="Identifier">EGL_MAX_SWAP_INTERVAL</span> <span class="Other">=</span> <span class="DecNumber">0x0000303C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L718"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L718"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MIPMAP_TEXTURE"><a name="EGL_MIPMAP_TEXTURE"></a><pre><span class="Identifier">EGL_MIPMAP_TEXTURE</span> <span class="Other">=</span> <span class="DecNumber">0x00003082</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L719"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L719"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MIPMAP_LEVEL"><a name="EGL_MIPMAP_LEVEL"></a><pre><span class="Identifier">EGL_MIPMAP_LEVEL</span> <span class="Other">=</span> <span class="DecNumber">0x00003083</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L720"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L720"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_TEXTURE"><a name="EGL_NO_TEXTURE"></a><pre><span class="Identifier">EGL_NO_TEXTURE</span> <span class="Other">=</span> <span class="DecNumber">0x0000305C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L721"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L721"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TEXTURE_2D"><a name="EGL_TEXTURE_2D"></a><pre><span class="Identifier">EGL_TEXTURE_2D</span> <span class="Other">=</span> <span class="DecNumber">0x0000305F</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L722"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L722"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TEXTURE_FORMAT"><a name="EGL_TEXTURE_FORMAT"></a><pre><span class="Identifier">EGL_TEXTURE_FORMAT</span> <span class="Other">=</span> <span class="DecNumber">0x00003080</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L723"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L723"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TEXTURE_RGB"><a name="EGL_TEXTURE_RGB"></a><pre><span class="Identifier">EGL_TEXTURE_RGB</span> <span class="Other">=</span> <span class="DecNumber">0x0000305D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L724"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L724"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TEXTURE_RGBA"><a name="EGL_TEXTURE_RGBA"></a><pre><span class="Identifier">EGL_TEXTURE_RGBA</span> <span class="Other">=</span> <span class="DecNumber">0x0000305E</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L725"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L725"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TEXTURE_TARGET"><a name="EGL_TEXTURE_TARGET"></a><pre><span class="Identifier">EGL_TEXTURE_TARGET</span> <span class="Other">=</span> <span class="DecNumber">0x00003081</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L726"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L726"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_ALPHA_FORMAT"><a name="EGL_ALPHA_FORMAT"></a><pre><span class="Identifier">EGL_ALPHA_FORMAT</span> <span class="Other">=</span> <span class="DecNumber">0x00003088</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L831"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L831"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_ALPHA_FORMAT_NONPRE"><a name="EGL_ALPHA_FORMAT_NONPRE"></a><pre><span class="Identifier">EGL_ALPHA_FORMAT_NONPRE</span> <span class="Other">=</span> <span class="DecNumber">0x0000308B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L832"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L832"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_ALPHA_FORMAT_PRE"><a name="EGL_ALPHA_FORMAT_PRE"></a><pre><span class="Identifier">EGL_ALPHA_FORMAT_PRE</span> <span class="Other">=</span> <span class="DecNumber">0x0000308C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L833"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L833"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_ALPHA_MASK_SIZE"><a name="EGL_ALPHA_MASK_SIZE"></a><pre><span class="Identifier">EGL_ALPHA_MASK_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x0000303E</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L834"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L834"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BUFFER_PRESERVED"><a name="EGL_BUFFER_PRESERVED"></a><pre><span class="Identifier">EGL_BUFFER_PRESERVED</span> <span class="Other">=</span> <span class="DecNumber">0x00003094</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L835"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L835"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_BUFFER_DESTROYED"><a name="EGL_BUFFER_DESTROYED"></a><pre><span class="Identifier">EGL_BUFFER_DESTROYED</span> <span class="Other">=</span> <span class="DecNumber">0x00003095</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L836"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L836"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CLIENT_APIS"><a name="EGL_CLIENT_APIS"></a><pre><span class="Identifier">EGL_CLIENT_APIS</span> <span class="Other">=</span> <span class="DecNumber">0x0000308D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L837"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L837"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_COLORSPACE"><a name="EGL_COLORSPACE"></a><pre><span class="Identifier">EGL_COLORSPACE</span> <span class="Other">=</span> <span class="DecNumber">0x00003087</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L838"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L838"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_COLORSPACE_sRGB"><a name="EGL_COLORSPACE_sRGB"></a><pre><span class="Identifier">EGL_COLORSPACE_sRGB</span> <span class="Other">=</span> <span class="DecNumber">0x00003089</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L839"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L839"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_COLORSPACE_LINEAR"><a name="EGL_COLORSPACE_LINEAR"></a><pre><span class="Identifier">EGL_COLORSPACE_LINEAR</span> <span class="Other">=</span> <span class="DecNumber">0x0000308A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L840"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L840"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_COLOR_BUFFER_TYPE"><a name="EGL_COLOR_BUFFER_TYPE"></a><pre><span class="Identifier">EGL_COLOR_BUFFER_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x0000303F</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L841"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L841"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_CLIENT_TYPE"><a name="EGL_CONTEXT_CLIENT_TYPE"></a><pre><span class="Identifier">EGL_CONTEXT_CLIENT_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x00003097</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L842"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L842"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_DISPLAY_SCALING"><a name="EGL_DISPLAY_SCALING"></a><pre><span class="Identifier">EGL_DISPLAY_SCALING</span> <span class="Other">=</span> <span class="DecNumber">10000</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L843"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L843"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_HORIZONTAL_RESOLUTION"><a name="EGL_HORIZONTAL_RESOLUTION"></a><pre><span class="Identifier">EGL_HORIZONTAL_RESOLUTION</span> <span class="Other">=</span> <span class="DecNumber">0x00003090</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L844"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L844"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_LUMINANCE_BUFFER"><a name="EGL_LUMINANCE_BUFFER"></a><pre><span class="Identifier">EGL_LUMINANCE_BUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x0000308F</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L845"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L845"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_LUMINANCE_SIZE"><a name="EGL_LUMINANCE_SIZE"></a><pre><span class="Identifier">EGL_LUMINANCE_SIZE</span> <span class="Other">=</span> <span class="DecNumber">0x0000303D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L846"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L846"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_ES_BIT"><a name="EGL_OPENGL_ES_BIT"></a><pre><span class="Identifier">EGL_OPENGL_ES_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000001</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L847"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L847"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENVG_BIT"><a name="EGL_OPENVG_BIT"></a><pre><span class="Identifier">EGL_OPENVG_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000002</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L848"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L848"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_ES_API"><a name="EGL_OPENGL_ES_API"></a><pre><span class="Identifier">EGL_OPENGL_ES_API</span> <span class="Other">=</span> <span class="DecNumber">0x000030A0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L849"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L849"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENVG_API"><a name="EGL_OPENVG_API"></a><pre><span class="Identifier">EGL_OPENVG_API</span> <span class="Other">=</span> <span class="DecNumber">0x000030A1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L850"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L850"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENVG_IMAGE"><a name="EGL_OPENVG_IMAGE"></a><pre><span class="Identifier">EGL_OPENVG_IMAGE</span> <span class="Other">=</span> <span class="DecNumber">0x00003096</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L851"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L851"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_PIXEL_ASPECT_RATIO"><a name="EGL_PIXEL_ASPECT_RATIO"></a><pre><span class="Identifier">EGL_PIXEL_ASPECT_RATIO</span> <span class="Other">=</span> <span class="DecNumber">0x00003092</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L852"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L852"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_RENDERABLE_TYPE"><a name="EGL_RENDERABLE_TYPE"></a><pre><span class="Identifier">EGL_RENDERABLE_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x00003040</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L853"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L853"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_RENDER_BUFFER"><a name="EGL_RENDER_BUFFER"></a><pre><span class="Identifier">EGL_RENDER_BUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x00003086</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L854"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L854"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_RGB_BUFFER"><a name="EGL_RGB_BUFFER"></a><pre><span class="Identifier">EGL_RGB_BUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x0000308E</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L855"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L855"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SINGLE_BUFFER"><a name="EGL_SINGLE_BUFFER"></a><pre><span class="Identifier">EGL_SINGLE_BUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x00003085</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L856"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L856"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SWAP_BEHAVIOR"><a name="EGL_SWAP_BEHAVIOR"></a><pre><span class="Identifier">EGL_SWAP_BEHAVIOR</span> <span class="Other">=</span> <span class="DecNumber">0x00003093</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L857"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L857"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_UNKNOWN"><a name="EGL_UNKNOWN"></a><pre><span class="Identifier">EGL_UNKNOWN</span> <span class="Other">=</span> <span class="DecNumber">-1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L858"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L858"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VERTICAL_RESOLUTION"><a name="EGL_VERTICAL_RESOLUTION"></a><pre><span class="Identifier">EGL_VERTICAL_RESOLUTION</span> <span class="Other">=</span> <span class="DecNumber">0x00003091</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L859"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L859"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONFORMANT"><a name="EGL_CONFORMANT"></a><pre><span class="Identifier">EGL_CONFORMANT</span> <span class="Other">=</span> <span class="DecNumber">0x00003042</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L964"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L964"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_CLIENT_VERSION"><a name="EGL_CONTEXT_CLIENT_VERSION"></a><pre><span class="Identifier">EGL_CONTEXT_CLIENT_VERSION</span> <span class="Other">=</span> <span class="DecNumber">0x00003098</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L965"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L965"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MATCH_NATIVE_PIXMAP"><a name="EGL_MATCH_NATIVE_PIXMAP"></a><pre><span class="Identifier">EGL_MATCH_NATIVE_PIXMAP</span> <span class="Other">=</span> <span class="DecNumber">0x00003041</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L966"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L966"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_ES2_BIT"><a name="EGL_OPENGL_ES2_BIT"></a><pre><span class="Identifier">EGL_OPENGL_ES2_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000004</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L967"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L967"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_ALPHA_FORMAT"><a name="EGL_VG_ALPHA_FORMAT"></a><pre><span class="Identifier">EGL_VG_ALPHA_FORMAT</span> <span class="Other">=</span> <span class="DecNumber">0x00003088</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L968"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L968"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_ALPHA_FORMAT_NONPRE"><a name="EGL_VG_ALPHA_FORMAT_NONPRE"></a><pre><span class="Identifier">EGL_VG_ALPHA_FORMAT_NONPRE</span> <span class="Other">=</span> <span class="DecNumber">0x0000308B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L969"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L969"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_ALPHA_FORMAT_PRE"><a name="EGL_VG_ALPHA_FORMAT_PRE"></a><pre><span class="Identifier">EGL_VG_ALPHA_FORMAT_PRE</span> <span class="Other">=</span> <span class="DecNumber">0x0000308C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L970"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L970"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_ALPHA_FORMAT_PRE_BIT"><a name="EGL_VG_ALPHA_FORMAT_PRE_BIT"></a><pre><span class="Identifier">EGL_VG_ALPHA_FORMAT_PRE_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000040</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L971"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L971"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_COLORSPACE"><a name="EGL_VG_COLORSPACE"></a><pre><span class="Identifier">EGL_VG_COLORSPACE</span> <span class="Other">=</span> <span class="DecNumber">0x00003087</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L972"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L972"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_COLORSPACE_sRGB"><a name="EGL_VG_COLORSPACE_sRGB"></a><pre><span class="Identifier">EGL_VG_COLORSPACE_sRGB</span> <span class="Other">=</span> <span class="DecNumber">0x00003089</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L973"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L973"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_COLORSPACE_LINEAR"><a name="EGL_VG_COLORSPACE_LINEAR"></a><pre><span class="Identifier">EGL_VG_COLORSPACE_LINEAR</span> <span class="Other">=</span> <span class="DecNumber">0x0000308A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L974"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L974"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_VG_COLORSPACE_LINEAR_BIT"><a name="EGL_VG_COLORSPACE_LINEAR_BIT"></a><pre><span class="Identifier">EGL_VG_COLORSPACE_LINEAR_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000020</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L975"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L975"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_DEFAULT_DISPLAY"><a name="EGL_DEFAULT_DISPLAY"></a><pre><span class="Identifier">EGL_DEFAULT_DISPLAY</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L981"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L981"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MULTISAMPLE_RESOLVE_BOX_BIT"><a name="EGL_MULTISAMPLE_RESOLVE_BOX_BIT"></a><pre><span class="Identifier">EGL_MULTISAMPLE_RESOLVE_BOX_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000200</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L982"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L982"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MULTISAMPLE_RESOLVE"><a name="EGL_MULTISAMPLE_RESOLVE"></a><pre><span class="Identifier">EGL_MULTISAMPLE_RESOLVE</span> <span class="Other">=</span> <span class="DecNumber">0x00003099</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L983"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L983"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MULTISAMPLE_RESOLVE_DEFAULT"><a name="EGL_MULTISAMPLE_RESOLVE_DEFAULT"></a><pre><span class="Identifier">EGL_MULTISAMPLE_RESOLVE_DEFAULT</span> <span class="Other">=</span> <span class="DecNumber">0x0000309A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L984"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L984"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_MULTISAMPLE_RESOLVE_BOX"><a name="EGL_MULTISAMPLE_RESOLVE_BOX"></a><pre><span class="Identifier">EGL_MULTISAMPLE_RESOLVE_BOX</span> <span class="Other">=</span> <span class="DecNumber">0x0000309B</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L985"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L985"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_API"><a name="EGL_OPENGL_API"></a><pre><span class="Identifier">EGL_OPENGL_API</span> <span class="Other">=</span> <span class="DecNumber">0x000030A2</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L986"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L986"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_BIT"><a name="EGL_OPENGL_BIT"></a><pre><span class="Identifier">EGL_OPENGL_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000008</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L987"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L987"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SWAP_BEHAVIOR_PRESERVED_BIT"><a name="EGL_SWAP_BEHAVIOR_PRESERVED_BIT"></a><pre><span class="Identifier">EGL_SWAP_BEHAVIOR_PRESERVED_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000400</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L988"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L988"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_MAJOR_VERSION"><a name="EGL_CONTEXT_MAJOR_VERSION"></a><pre><span class="Identifier">EGL_CONTEXT_MAJOR_VERSION</span> <span class="Other">=</span> <span class="DecNumber">0x00003098</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1008"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1008"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_MINOR_VERSION"><a name="EGL_CONTEXT_MINOR_VERSION"></a><pre><span class="Identifier">EGL_CONTEXT_MINOR_VERSION</span> <span class="Other">=</span> <span class="DecNumber">0x000030FB</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1009"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1009"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_PROFILE_MASK"><a name="EGL_CONTEXT_OPENGL_PROFILE_MASK"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_PROFILE_MASK</span> <span class="Other">=</span> <span class="DecNumber">0x000030FD</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1010"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1010"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY"><a name="EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY</span> <span class="Other">=</span> <span class="DecNumber">0x000031BD</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1011"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1011"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_RESET_NOTIFICATION"><a name="EGL_NO_RESET_NOTIFICATION"></a><pre><span class="Identifier">EGL_NO_RESET_NOTIFICATION</span> <span class="Other">=</span> <span class="DecNumber">0x000031BE</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1012"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1012"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_LOSE_CONTEXT_ON_RESET"><a name="EGL_LOSE_CONTEXT_ON_RESET"></a><pre><span class="Identifier">EGL_LOSE_CONTEXT_ON_RESET</span> <span class="Other">=</span> <span class="DecNumber">0x000031BF</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1013"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1013"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT"><a name="EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000001</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1014"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1014"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT"><a name="EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000002</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1015"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1015"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_DEBUG"><a name="EGL_CONTEXT_OPENGL_DEBUG"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_DEBUG</span> <span class="Other">=</span> <span class="DecNumber">0x000031B0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1016"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1016"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE"><a name="EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE</span> <span class="Other">=</span> <span class="DecNumber">0x000031B1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1017"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1017"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONTEXT_OPENGL_ROBUST_ACCESS"><a name="EGL_CONTEXT_OPENGL_ROBUST_ACCESS"></a><pre><span class="Identifier">EGL_CONTEXT_OPENGL_ROBUST_ACCESS</span> <span class="Other">=</span> <span class="DecNumber">0x000031B2</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1018"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1018"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_OPENGL_ES3_BIT"><a name="EGL_OPENGL_ES3_BIT"></a><pre><span class="Identifier">EGL_OPENGL_ES3_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000040</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1019"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1019"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CL_EVENT_HANDLE"><a name="EGL_CL_EVENT_HANDLE"></a><pre><span class="Identifier">EGL_CL_EVENT_HANDLE</span> <span class="Other">=</span> <span class="DecNumber">0x0000309C</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1020"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1020"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_CL_EVENT"><a name="EGL_SYNC_CL_EVENT"></a><pre><span class="Identifier">EGL_SYNC_CL_EVENT</span> <span class="Other">=</span> <span class="DecNumber">0x000030FE</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1021"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1021"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_CL_EVENT_COMPLETE"><a name="EGL_SYNC_CL_EVENT_COMPLETE"></a><pre><span class="Identifier">EGL_SYNC_CL_EVENT_COMPLETE</span> <span class="Other">=</span> <span class="DecNumber">0x000030FF</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1022"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1022"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_PRIOR_COMMANDS_COMPLETE"><a name="EGL_SYNC_PRIOR_COMMANDS_COMPLETE"></a><pre><span class="Identifier">EGL_SYNC_PRIOR_COMMANDS_COMPLETE</span> <span class="Other">=</span> <span class="DecNumber">0x000030F0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1023"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1023"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_TYPE"><a name="EGL_SYNC_TYPE"></a><pre><span class="Identifier">EGL_SYNC_TYPE</span> <span class="Other">=</span> <span class="DecNumber">0x000030F7</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1024"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1024"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_STATUS"><a name="EGL_SYNC_STATUS"></a><pre><span class="Identifier">EGL_SYNC_STATUS</span> <span class="Other">=</span> <span class="DecNumber">0x000030F1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1025"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1025"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_CONDITION"><a name="EGL_SYNC_CONDITION"></a><pre><span class="Identifier">EGL_SYNC_CONDITION</span> <span class="Other">=</span> <span class="DecNumber">0x000030F8</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1026"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1026"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SIGNALED"><a name="EGL_SIGNALED"></a><pre><span class="Identifier">EGL_SIGNALED</span> <span class="Other">=</span> <span class="DecNumber">0x000030F2</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1027"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1027"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_UNSIGNALED"><a name="EGL_UNSIGNALED"></a><pre><span class="Identifier">EGL_UNSIGNALED</span> <span class="Other">=</span> <span class="DecNumber">0x000030F3</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1028"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1028"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_FLUSH_COMMANDS_BIT"><a name="EGL_SYNC_FLUSH_COMMANDS_BIT"></a><pre><span class="Identifier">EGL_SYNC_FLUSH_COMMANDS_BIT</span> <span class="Other">=</span> <span class="DecNumber">0x00000001</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1029"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1029"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_FOREVER"><a name="EGL_FOREVER"></a><pre><span class="Identifier">EGL_FOREVER</span> <span class="Other">=</span> <span class="DecNumber">0xFFFFFFFFFFFFFFFF'i64</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1030"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1030"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_TIMEOUT_EXPIRED"><a name="EGL_TIMEOUT_EXPIRED"></a><pre><span class="Identifier">EGL_TIMEOUT_EXPIRED</span> <span class="Other">=</span> <span class="DecNumber">0x000030F5</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1031"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1031"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_CONDITION_SATISFIED"><a name="EGL_CONDITION_SATISFIED"></a><pre><span class="Identifier">EGL_CONDITION_SATISFIED</span> <span class="Other">=</span> <span class="DecNumber">0x000030F6</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1032"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1032"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_SYNC"><a name="EGL_NO_SYNC"></a><pre><span class="Identifier">EGL_NO_SYNC</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1033"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1033"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_SYNC_FENCE"><a name="EGL_SYNC_FENCE"></a><pre><span class="Identifier">EGL_SYNC_FENCE</span> <span class="Other">=</span> <span class="DecNumber">0x000030F9</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1034"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1034"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_COLORSPACE"><a name="EGL_GL_COLORSPACE"></a><pre><span class="Identifier">EGL_GL_COLORSPACE</span> <span class="Other">=</span> <span class="DecNumber">0x0000309D</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1035"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1035"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_COLORSPACE_SRGB"><a name="EGL_GL_COLORSPACE_SRGB"></a><pre><span class="Identifier">EGL_GL_COLORSPACE_SRGB</span> <span class="Other">=</span> <span class="DecNumber">0x00003089</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1036"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1036"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_COLORSPACE_LINEAR"><a name="EGL_GL_COLORSPACE_LINEAR"></a><pre><span class="Identifier">EGL_GL_COLORSPACE_LINEAR</span> <span class="Other">=</span> <span class="DecNumber">0x0000308A</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1037"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1037"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_RENDERBUFFER"><a name="EGL_GL_RENDERBUFFER"></a><pre><span class="Identifier">EGL_GL_RENDERBUFFER</span> <span class="Other">=</span> <span class="DecNumber">0x000030B9</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1038"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1038"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_2D"><a name="EGL_GL_TEXTURE_2D"></a><pre><span class="Identifier">EGL_GL_TEXTURE_2D</span> <span class="Other">=</span> <span class="DecNumber">0x000030B1</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1039"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1039"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_LEVEL"><a name="EGL_GL_TEXTURE_LEVEL"></a><pre><span class="Identifier">EGL_GL_TEXTURE_LEVEL</span> <span class="Other">=</span> <span class="DecNumber">0x000030BC</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1040"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1040"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_3D"><a name="EGL_GL_TEXTURE_3D"></a><pre><span class="Identifier">EGL_GL_TEXTURE_3D</span> <span class="Other">=</span> <span class="DecNumber">0x000030B2</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1041"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1041"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_ZOFFSET"><a name="EGL_GL_TEXTURE_ZOFFSET"></a><pre><span class="Identifier">EGL_GL_TEXTURE_ZOFFSET</span> <span class="Other">=</span> <span class="DecNumber">0x000030BD</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1042"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1042"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X"><a name="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X</span> <span class="Other">=</span> <span class="DecNumber">0x000030B3</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1043"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1043"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X"><a name="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X</span> <span class="Other">=</span> <span class="DecNumber">0x000030B4</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1044"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1044"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y"><a name="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y</span> <span class="Other">=</span> <span class="DecNumber">0x000030B5</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1045"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1045"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y"><a name="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</span> <span class="Other">=</span> <span class="DecNumber">0x000030B6</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1046"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1046"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z"><a name="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z</span> <span class="Other">=</span> <span class="DecNumber">0x000030B7</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1047"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1047"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z"><a name="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z"></a><pre><span class="Identifier">EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</span> <span class="Other">=</span> <span class="DecNumber">0x000030B8</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1048"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1048"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_IMAGE_PRESERVED"><a name="EGL_IMAGE_PRESERVED"></a><pre><span class="Identifier">EGL_IMAGE_PRESERVED</span> <span class="Other">=</span> <span class="DecNumber">0x000030D2</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1049"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1049"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="EGL_NO_IMAGE"><a name="EGL_NO_IMAGE"></a><pre><span class="Identifier">EGL_NO_IMAGE</span> <span class="Other">=</span> <span class="DecNumber">0</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1050"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1050"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 
@@ -2973,10 +2975,9 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<dt id="eglChooseConfig"><a name="eglChooseConfig,EGLDisplay,ptr.EGLInt,ptr.EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglChooseConfig</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> 
-                     <span class="Identifier">configs</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> <span class="Identifier">configSize</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> 
-                     <span class="Identifier">numConfig</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglChooseConfig"><a name="eglChooseConfig,EGLDisplay,ptr.EGLInt,ptr.EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglChooseConfig</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                    <span class="Identifier">configs</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> <span class="Identifier">configSize</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">numConfig</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
+    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return a list of EGL frame buffer configurations that match specified attributes.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3000,11 +3001,11 @@ Return a list of EGL frame buffer configurations that match specified attributes
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L136"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L136"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCopyBuffers"><a name="eglCopyBuffers,EGLDisplay,EGLSurface,EGLNativePixmapType"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCopyBuffers</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> 
-                    <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">EGLNativePixmapType</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglCopyBuffers"><a name="eglCopyBuffers,EGLDisplay,EGLSurface,EGLNativePixmapType"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCopyBuffers</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span>
+                   <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">EGLNativePixmapType</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Copy EGL surface color buffer to a native pixmap.<dl class="docutils"><dt>display</dt>
@@ -3027,11 +3028,11 @@ Copy EGL surface color buffer to a native pixmap.<dl class="docutils"><dt>displa
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L166"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L166"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreateContext"><a name="eglCreateContext,EGLDisplay,EGLConfig,EGLContext,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                      <span class="Identifier">shareContext</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLContext</span> <span class="Other">{.</span>
+<dt id="eglCreateContext"><a name="eglCreateContext,EGLDisplay,EGLConfig,EGLContext,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                     <span class="Identifier">shareContext</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLContext</span> <span class="Other">{.</span>
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a new EGL rendering context.<dl class="docutils"><dt>display</dt>
@@ -3057,11 +3058,11 @@ Create a new EGL rendering context.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L194"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L194"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreatePbufferSurface"><a name="eglCreatePbufferSurface,EGLDisplay,EGLConfig,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePbufferSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                             <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglCreatePbufferSurface"><a name="eglCreatePbufferSurface,EGLDisplay,EGLConfig,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePbufferSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                            <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a new EGL pixel buffer surface.<dl class="docutils"><dt>display</dt>
@@ -3087,12 +3088,12 @@ Create a new EGL pixel buffer surface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L242"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L242"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreatePixmapSurface"><a name="eglCreatePixmapSurface,EGLDisplay,EGLConfig,EGLNativePixmapType,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePixmapSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                            <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">EGLNativePixmapType</span><span class="Other">;</span> 
-                            <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglCreatePixmapSurface"><a name="eglCreatePixmapSurface,EGLDisplay,EGLConfig,EGLNativePixmapType,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePixmapSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                           <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">EGLNativePixmapType</span><span class="Other">;</span>
+                           <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a new EGL pixmap surface.<dl class="docutils"><dt>display</dt>
@@ -3118,12 +3119,12 @@ Create a new EGL pixmap surface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L289"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L289"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreateWindowSurface"><a name="eglCreateWindowSurface,EGLDisplay,EGLConfig,EGLNativeWindowType,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateWindowSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                            <span class="Identifier">nativeWindow</span><span class="Other">:</span> <span class="Identifier">EGLNativeWindowType</span><span class="Other">;</span> 
-                            <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglCreateWindowSurface"><a name="eglCreateWindowSurface,EGLDisplay,EGLConfig,EGLNativeWindowType,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateWindowSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                           <span class="Identifier">nativeWindow</span><span class="Other">:</span> <span class="Identifier">EGLNativeWindowType</span><span class="Other">;</span>
+                           <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a new EGL window surface.<dl class="docutils"><dt>display</dt>
@@ -3151,11 +3152,11 @@ Create a new EGL window surface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L328"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L328"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglDestroyContext"><a name="eglDestroyContext,EGLDisplay,EGLContext"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroyContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglDestroyContext"><a name="eglDestroyContext,EGLDisplay,EGLContext"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroyContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Destroy an EGL rendering context.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3171,11 +3172,11 @@ Destroy an EGL rendering context.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L367"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L367"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglDestroySurface"><a name="eglDestroySurface,EGLDisplay,EGLSurface"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroySurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglDestroySurface"><a name="eglDestroySurface,EGLDisplay,EGLSurface"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroySurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Destroy an EGL surface.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3191,12 +3192,11 @@ Destroy an EGL surface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L384"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L384"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetConfigAttrib"><a name="eglGetConfigAttrib,EGLDisplay,EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetConfigAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                        <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglGetConfigAttrib"><a name="eglGetConfigAttrib,EGLDisplay,EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetConfigAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                       <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return information about an EGL frame buffer configuration.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3217,12 +3217,11 @@ Return information about an EGL frame buffer configuration.<dl class="docutils">
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L401"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L401"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetConfigs"><a name="eglGetConfigs,EGLDisplay,ptr.EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetConfigs</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">configs</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                   <span class="Identifier">configSize</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">numConfig</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglGetConfigs"><a name="eglGetConfigs,EGLDisplay,ptr.EGLConfig,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetConfigs</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">configs</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> <span class="Identifier">configSize</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                  <span class="Identifier">numConfig</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return a list of all EGL frame buffer configurations for a display.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3243,7 +3242,7 @@ Return a list of all EGL frame buffer configurations for a display.<dl class="do
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L426"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L426"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglGetCurrentDisplay"><a name="eglGetCurrentDisplay,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetCurrentDisplay</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3253,11 +3252,11 @@ Return the display for the current EGL rendering context.<dl class="docutils"><d
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L450"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L450"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetCurrentSurface"><a name="eglGetCurrentSurface,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetCurrentSurface</span><span class="Other">(</span><span class="Identifier">readdraw</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglGetCurrentSurface"><a name="eglGetCurrentSurface,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetCurrentSurface</span><span class="Other">(</span><span class="Identifier">readdraw</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return the read or draw surface for the current EGL rendering context.<dl class="docutils"><dt>readdraw</dt>
 <dd>Specifies whether the EGL read or draw surface is to be returned.</dd>
@@ -3266,10 +3265,10 @@ Return the read or draw surface for the current EGL rendering context.<dl class=
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L457"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L457"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetDisplay"><a name="eglGetDisplay,EGLNativeDisplayType"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetDisplay</span><span class="Other">(</span><span class="Identifier">nativeDisplay</span><span class="Other">:</span> <span class="Identifier">EGLNativeDisplayType</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglGetDisplay"><a name="eglGetDisplay,EGLNativeDisplayType"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetDisplay</span><span class="Other">(</span><span class="Identifier">nativeDisplay</span><span class="Other">:</span> <span class="Identifier">EGLNativeDisplayType</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return an EGL display connection.<dl class="docutils"><dt>nativeDisplay</dt>
@@ -3280,7 +3279,7 @@ Return an EGL display connection.<dl class="docutils"><dt>nativeDisplay</dt>
 <p>No error is generated.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L467"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L467"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglGetError"><a name="eglGetError,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetError</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLInt</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3307,10 +3306,10 @@ Return error information.<dl class="docutils"><dt>result</dt>
 <p>A call to eglGetError sets the error to <cite>EGL_SUCCESS</cite>.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L481"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L481"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetProcAddress"><a name="eglGetProcAddress,cstring"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetProcAddress</span><span class="Other">(</span><span class="Identifier">procname</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLMustCastToProperProcType</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglGetProcAddress"><a name="eglGetProcAddress,cstring"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetProcAddress</span><span class="Other">(</span><span class="Identifier">procname</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLMustCastToProperProcType</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return a GL or an EGL extension function.<dl class="docutils"><dt>procname</dt>
@@ -3320,7 +3319,7 @@ Return a GL or an EGL extension function.<dl class="docutils"><dt>procname</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L518"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L518"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglInitialize"><a name="eglInitialize,EGLDisplay,ptr.EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglInitialize</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">major</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">minor</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
@@ -3335,12 +3334,11 @@ Initialize an EGL display connection.<dl class="docutils"><dt>display</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L528"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L528"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglMakeCurrent"><a name="eglMakeCurrent,EGLDisplay,EGLSurface,EGLSurface,EGLContext"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglMakeCurrent</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">draw</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">read</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> 
-                    <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> 
-    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglMakeCurrent"><a name="eglMakeCurrent,EGLDisplay,EGLSurface,EGLSurface,EGLContext"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglMakeCurrent</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">draw</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">read</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span>
+                   <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Attach an EGL rendering context to EGL surfaces.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3368,12 +3366,11 @@ Attach an EGL rendering context to EGL surfaces.<dl class="docutils"><dt>display
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L540"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L540"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglQueryContext"><a name="eglQueryContext,EGLDisplay,EGLContext,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQueryContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> 
-                     <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglQueryContext"><a name="eglQueryContext,EGLDisplay,EGLContext,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQueryContext</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                    <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return EGL rendering context information.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3394,10 +3391,10 @@ Return EGL rendering context information.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L581"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L581"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglQueryString"><a name="eglQueryString,EGLDisplay,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQueryString</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">cstring</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglQueryString"><a name="eglQueryString,EGLDisplay,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQueryString</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">cstring</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return a string describing an EGL display connection.<dl class="docutils"><dt>display</dt>
@@ -3414,12 +3411,11 @@ Return a string describing an EGL display connection.<dl class="docutils"><dt>di
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L605"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L605"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglQuerySurface"><a name="eglQuerySurface,EGLDisplay,EGLSurface,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQuerySurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> 
-                     <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglQuerySurface"><a name="eglQuerySurface,EGLDisplay,EGLSurface,EGLInt,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQuerySurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                    <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Return EGL surface information.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3440,11 +3436,11 @@ Return EGL surface information.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L623"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L623"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglSwapBuffers"><a name="eglSwapBuffers,EGLDisplay,EGLSurface"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSwapBuffers</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglSwapBuffers"><a name="eglSwapBuffers,EGLDisplay,EGLSurface"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSwapBuffers</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Post EGL surface color buffer to a native window.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3461,11 +3457,10 @@ Post EGL surface color buffer to a native window.<dl class="docutils"><dt>displa
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L647"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L647"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglTerminate"><a name="eglTerminate,EGLDisplay"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglTerminate</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> 
-    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglTerminate"><a name="eglTerminate,EGLDisplay"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglTerminate</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Terminate an EGL display connection.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection to terminate.</dd>
@@ -3477,7 +3472,7 @@ Terminate an EGL display connection.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L667"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L667"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglWaitGL"><a name="eglWaitGL,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglWaitGL</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3490,7 +3485,7 @@ Complete GL execution prior to subsequent native rendering calls.<dl class="docu
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L680"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L680"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglWaitNative"><a name="eglWaitNative,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglWaitNative</span><span class="Other">(</span><span class="Identifier">engine</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3506,7 +3501,7 @@ Complete native execution prior to subsequent GL rendering calls.<dl class="docu
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L693"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L693"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglBindTexImage"><a name="eglBindTexImage,EGLDisplay,EGLSurface,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglBindTexImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
@@ -3529,7 +3524,7 @@ Defines a two-dimensional texture image.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L729"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L729"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglReleaseTexImage"><a name="eglReleaseTexImage,EGLDisplay,EGLSurface,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglReleaseTexImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
@@ -3551,12 +3546,11 @@ Releases a color buffer that is being used as a texture.<dl class="docutils"><dt
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L752"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L752"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglSurfaceAttrib"><a name="eglSurfaceAttrib,EGLDisplay,EGLSurface,EGLInt,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSurfaceAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> 
-                      <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglSurfaceAttrib"><a name="eglSurfaceAttrib,EGLDisplay,EGLSurface,EGLInt,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSurfaceAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">surface</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                     <span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Set an EGL surface attribute.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3579,10 +3573,10 @@ Set an EGL surface attribute.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L774"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L774"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglSwapInterval"><a name="eglSwapInterval,EGLDisplay,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSwapInterval</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">interval</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglSwapInterval"><a name="eglSwapInterval,EGLDisplay,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglSwapInterval</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">interval</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Specifies the minimum number of video frame periods per buffer swap for the window associated with the current context.<dl class="docutils"><dt>display</dt>
@@ -3598,7 +3592,7 @@ Specifies the minimum number of video frame periods per buffer swap for the wind
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L805"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L805"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglBindAPI"><a name="eglBindAPI,EGLenum"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglBindAPI</span><span class="Other">(</span><span class="Identifier">api</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3613,7 +3607,7 @@ Set the current rendering API.<dl class="docutils"><dt>api</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L862"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L862"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglQueryAPI"><a name="eglQueryAPI,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglQueryAPI</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLenum</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3623,13 +3617,13 @@ Query the current rendering API.<dl class="docutils"><dt>result</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L876"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L876"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreatePbufferFromClientBuffer"><a name="eglCreatePbufferFromClientBuffer,EGLDisplay,EGLenum,EGLClientBuffer,EGLConfig,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePbufferFromClientBuffer</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">buftype</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> 
-                                      <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLClientBuffer</span><span class="Other">;</span> 
-                                      <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglCreatePbufferFromClientBuffer"><a name="eglCreatePbufferFromClientBuffer,EGLDisplay,EGLenum,EGLClientBuffer,EGLConfig,ptr.EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePbufferFromClientBuffer</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">buftype</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span>
+                                     <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLClientBuffer</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                                     <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a new EGL pixel buffer surface bound to an OpenVG image.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3661,7 +3655,7 @@ Create a new EGL pixel buffer surface bound to an OpenVG image.<dl class="docuti
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L884"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L884"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglReleaseThread"><a name="eglReleaseThread,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglReleaseThread</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3671,7 +3665,7 @@ Release EGL per-thread state.<dl class="docutils"><dt>result</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L944"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L944"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglWaitClient"><a name="eglWaitClient,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglWaitClient</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3684,7 +3678,7 @@ Complete client API execution prior to subsequent native rendering calls.<dl cla
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L951"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L951"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 <dt id="eglGetCurrentContext"><a name="eglGetCurrentContext,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetCurrentContext</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLContext</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
@@ -3694,12 +3688,11 @@ Return the current EGL rendering context.<dl class="docutils"><dt>result</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L991"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L991"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreateSync"><a name="eglCreateSync,EGLDisplay,EGLenum,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">syncType</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> 
-                   <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSync</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> 
-    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglCreateSync"><a name="eglCreateSync,EGLDisplay,EGLenum,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">syncType</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSync</span> <span class="Other">{.</span>
+    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create a sync object of the specified type.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3712,10 +3705,10 @@ Create a sync object of the specified type.<dl class="docutils"><dt>display</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1053"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1053"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglDestroySync"><a name="eglDestroySync,EGLDisplay,EGLSync"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroySync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglDestroySync"><a name="eglDestroySync,EGLDisplay,EGLSync"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroySync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Destroy an existing sync object.<dl class="docutils"><dt>display</dt>
@@ -3731,12 +3724,11 @@ Destroy an existing sync object.<dl class="docutils"><dt>display</dt>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1067"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1067"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglClientWaitSync"><a name="eglClientWaitSync,EGLDisplay,EGLSync,EGLInt,EGLTime"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglClientWaitSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">flags</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> 
-                       <span class="Identifier">timeout</span><span class="Other">:</span> <span class="Identifier">EGLTime</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLInt</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> 
-    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglClientWaitSync"><a name="eglClientWaitSync,EGLDisplay,EGLSync,EGLInt,EGLTime"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglClientWaitSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">flags</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                      <span class="Identifier">timeout</span><span class="Other">:</span> <span class="Identifier">EGLTime</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLInt</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Blocks the calling thread until the specified sync object signaled or timed out.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3760,12 +3752,12 @@ Blocks the calling thread until the specified sync object signaled or timed out.
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1082"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1082"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetSyncAttrib"><a name="eglGetSyncAttrib,EGLDisplay,EGLSync,EGLInt,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetSyncAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span> 
-                      <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
-    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglGetSyncAttrib"><a name="eglGetSyncAttrib,EGLDisplay,EGLSync,EGLInt,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetSyncAttrib</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">attribute</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">;</span>
+                     <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Query attributes of a sync object.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3785,11 +3777,11 @@ Query attributes of a sync object.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1107"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1107"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreateImage"><a name="eglCreateImage,EGLDisplay,EGLContext,EGLenum,EGLClientBuffer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> <span class="Identifier">target</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> 
-                    <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLClientBuffer</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLImage</span> <span class="Other">{.</span>
+<dt id="eglCreateImage"><a name="eglCreateImage,EGLDisplay,EGLContext,EGLenum,EGLClientBuffer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreateImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">context</span><span class="Other">:</span> <span class="Identifier">EGLContext</span><span class="Other">;</span> <span class="Identifier">target</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span>
+                   <span class="Identifier">buffer</span><span class="Other">:</span> <span class="Identifier">EGLClientBuffer</span><span class="Other">;</span> <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLImage</span> <span class="Other">{.</span>
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create an EGLImage from an existing image resource.<dl class="docutils"><dt>display</dt>
@@ -3830,10 +3822,10 @@ Create an EGLImage from an existing image resource.<dl class="docutils"><dt>disp
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1130"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1130"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglDestroyImage"><a name="eglDestroyImage,EGLDisplay,EGLImage"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroyImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">image</span><span class="Other">:</span> <span class="Identifier">EGLImage</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglDestroyImage"><a name="eglDestroyImage,EGLDisplay,EGLImage"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglDestroyImage</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">image</span><span class="Other">:</span> <span class="Identifier">EGLImage</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Destroy an image object.<dl class="docutils"><dt>display</dt>
@@ -3849,11 +3841,11 @@ Destroy an image object.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1218"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1218"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglGetPlatformDisplay"><a name="eglGetPlatformDisplay,EGLenum,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetPlatformDisplay</span><span class="Other">(</span><span class="Identifier">platform</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> <span class="Identifier">nativeDisplay</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span> 
-                           <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span> 
+<dt id="eglGetPlatformDisplay"><a name="eglGetPlatformDisplay,EGLenum,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglGetPlatformDisplay</span><span class="Other">(</span><span class="Identifier">platform</span><span class="Other">:</span> <span class="Identifier">EGLenum</span><span class="Other">;</span> <span class="Identifier">nativeDisplay</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+                          <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Obtain a native platform display.<dl class="docutils"><dt>platform</dt>
@@ -3870,13 +3862,13 @@ Obtain a native platform display.<dl class="docutils"><dt>platform</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1236"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1236"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreatePlatformWindowSurface"><a name="eglCreatePlatformWindowSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePlatformWindowSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                                    <span class="Identifier">nativeWindow</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span> 
-                                    <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglCreatePlatformWindowSurface"><a name="eglCreatePlatformWindowSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePlatformWindowSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                                   <span class="Identifier">nativeWindow</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+                                   <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create an onscreen EGLSurface.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3900,13 +3892,13 @@ Create an onscreen EGLSurface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1254"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1254"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglCreatePlatformPixmapSurface"><a name="eglCreatePlatformPixmapSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePlatformPixmapSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span> 
-                                    <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span> 
-                                    <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglCreatePlatformPixmapSurface"><a name="eglCreatePlatformPixmapSurface,EGLDisplay,EGLConfig,pointer,ptr.EGLAttrib"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglCreatePlatformPixmapSurface</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">config</span><span class="Other">:</span> <span class="Identifier">EGLConfig</span><span class="Other">;</span>
+                                   <span class="Identifier">nativePixmap</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+                                   <span class="Identifier">attribList</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">EGLAttrib</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLSurface</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Create an offscreen EGLSurface.<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3930,11 +3922,11 @@ Create an offscreen EGLSurface.<dl class="docutils"><dt>display</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1288"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1288"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
-<dt id="eglWaitSync"><a name="eglWaitSync,EGLDisplay,EGLSync,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglWaitSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">flags</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
+<dt id="eglWaitSync"><a name="eglWaitSync,EGLDisplay,EGLSync,EGLInt"></a><pre><span class="Keyword">proc</span> <span class="Identifier">eglWaitSync</span><span class="Other">(</span><span class="Identifier">display</span><span class="Other">:</span> <span class="Identifier">EGLDisplay</span><span class="Other">;</span> <span class="Identifier">sync</span><span class="Other">:</span> <span class="Identifier">EGLSync</span><span class="Other">;</span> <span class="Identifier">flags</span><span class="Other">:</span> <span class="Identifier">EGLInt</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EGLBoolean</span> <span class="Other">{.</span><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">dynlib</span><span class="Other">:</span> <span class="Identifier">dllname</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">.}</span></pre></dt>
 <dd>
 Check whether a sync object is signaled (without blocking the application).<dl class="docutils"><dt>display</dt>
 <dd>Specifies the EGL display connection.</dd>
@@ -3953,7 +3945,7 @@ Check whether a sync object is signaled (without blocking the application).<dl c
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/nimious/io-egl/tree/master/src/egl.nim#L1321"
+href="https://github.com/nimious/egl/tree/master/src/egl.nim#L1321"
 class="link-seesrc" target="_blank">Source</a>
 </dd>
 
@@ -3965,8 +3957,8 @@ class="link-seesrc" target="_blank">Source</a>
     <div class="row">
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
-        <br>
-        <small>Made with Nim. Generated: 2015-05-17 14:04:24 UTC</small>
+        <br/>
+        <small>Made with Nim. Generated: 2016-01-30 12:45:10 UTC</small>
       </div>
     </div>
   </div>

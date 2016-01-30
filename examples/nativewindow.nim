@@ -1,4 +1,4 @@
-## *io-egl* - Nim bindings for EGL, the native platform interface for rendering
+## *egl* - Nim bindings for EGL, the native platform interface for rendering
 ## APIs.
 ##
 ## This file is part of the `Nim I/O <http://nimio.us>`_ package collection.
@@ -42,7 +42,7 @@ when defined(windows):
         lpfnWndProc: windowProc,
         hInstance: hInstance,
         hbrBackground: cast[HBRUSH](GetStockObject(BLACK_BRUSH)),
-        lpszClassName: "io-egl")
+        lpszClassName: "egl")
 
     if RegisterClass(addr wndclass) != 0:
       let style = WS_VISIBLE or WS_POPUP or WS_BORDER or WS_SYSMENU or WS_CAPTION
@@ -53,8 +53,8 @@ when defined(windows):
       discard AdjustWindowRect(addr rect, style, 0)
 
       window.nativeWindow = CreateWindow(
-        "io-egl",
-        "io-egl Example",
+        "egl",
+        "egl Example",
         style,
         0,
         0,
