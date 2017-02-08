@@ -18,18 +18,23 @@ when defined(windows):
     EGLNativePixmapType* = HBITMAP
     EGLNativeWindowType* = HWND
 
+  {.pragma: eglImport, cdecl, dynlib: dllname, importc.}
+
 elif defined(macosx):
   type
     EGLNativeDisplayType* = cint
     EGLNativePixmapType* = pointer
     EGLNativeWindowType* = pointer
 
+  {.pragma: eglImport, cdecl, importc.}
+
 elif defined(android):
-  #type
-  #  EGLNativeDisplayType* = pointer
-  #  EGLNativePixmapType* = pointer
-  #  EGLNativeWindowType* = ptr ANativeWindow
-  {.error: "egl does not support Android yet".}
+  type
+   EGLNativeDisplayType* = pointer
+   EGLNativePixmapType* = pointer
+   EGLNativeWindowType* = pointer
+
+  {.pragma: eglImport, cdecl, importc.}
 
 elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
   import xlib, xutil
@@ -38,6 +43,8 @@ elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
     EGLNativeDisplayType* = PXDisplay
     EGLNativePixmapType* = TPixmap
     EGLNativeWindowType* = TWindow
+
+  {.pragma: eglImport, cdecl, importc.}
 
 else:
   {.error: "egl does not support this platform".}
@@ -135,7 +142,7 @@ const
 
 proc eglChooseConfig*(display: EGLDisplay; attribList: ptr EGLInt;
   configs: ptr EGLConfig; configSize: EGLint; numConfig: ptr EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Return a list of EGL frame buffer configurations that match specified
   ## attributes.
   ##
@@ -164,8 +171,7 @@ proc eglChooseConfig*(display: EGLDisplay; attribList: ptr EGLInt;
 
 
 proc eglCopyBuffers*(display: EGLDisplay; surface: EGLSurface;
-  nativePixmap: EGLNativePixmapType): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  nativePixmap: EGLNativePixmapType): EGLBoolean {.eglImport.}
   ## Copy EGL surface color buffer to a native pixmap.
   ##
   ## display
@@ -192,8 +198,7 @@ proc eglCopyBuffers*(display: EGLDisplay; surface: EGLSurface;
 
 
 proc eglCreateContext*(display: EGLDisplay; config: EGLConfig;
-  shareContext: EGLContext; attribList: ptr EGLint): EGLContext
-  {.cdecl, dynlib: dllname, importc.}
+  shareContext: EGLContext; attribList: ptr EGLint): EGLContext {.eglImport.}
   ## Create a new EGL rendering context.
   ##
   ## display
@@ -240,7 +245,7 @@ proc eglCreateContext*(display: EGLDisplay; config: EGLConfig;
 
 
 proc eglCreatePbufferSurface*(display: EGLDisplay; config: EGLConfig;
-  attribList: ptr EGLint): EGLSurface {.cdecl, dynlib: dllname, importc.}
+  attribList: ptr EGLint): EGLSurface {.eglImport.}
   ## Create a new EGL pixel buffer surface.
   ##
   ## display
@@ -288,7 +293,7 @@ proc eglCreatePbufferSurface*(display: EGLDisplay; config: EGLConfig;
 
 proc eglCreatePixmapSurface*(display: EGLDisplay; config: EGLConfig;
   nativePixmap: EGLNativePixmapType; attribList: ptr EGLint): EGLSurface
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Create a new EGL pixmap surface.
   ##
   ## display
@@ -327,7 +332,7 @@ proc eglCreatePixmapSurface*(display: EGLDisplay; config: EGLConfig;
 
 proc eglCreateWindowSurface*(display: EGLDisplay; config: EGLConfig;
   nativeWindow: EGLNativeWindowType; attribList: ptr EGLint): EGLSurface
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Create a new EGL window surface.
   ##
   ## display
@@ -365,7 +370,7 @@ proc eglCreateWindowSurface*(display: EGLDisplay; config: EGLConfig;
 
 
 proc eglDestroyContext*(display: EGLDisplay; context: EGLContext): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Destroy an EGL rendering context.
   ##
   ## display
@@ -382,7 +387,7 @@ proc eglDestroyContext*(display: EGLDisplay; context: EGLContext): EGLBoolean
 
 
 proc eglDestroySurface*(display: EGLDisplay; surface: EGLSurface): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Destroy an EGL surface.
   ##
   ## display
@@ -399,8 +404,7 @@ proc eglDestroySurface*(display: EGLDisplay; surface: EGLSurface): EGLBoolean
 
 
 proc eglGetConfigAttrib*(display: EGLDisplay; config: EGLConfig;
-  attribute: EGLint; value: ptr EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  attribute: EGLint; value: ptr EGLint): EGLBoolean {.eglImport.}
   ## Return information about an EGL frame buffer configuration.
   ##
   ## display
@@ -424,8 +428,7 @@ proc eglGetConfigAttrib*(display: EGLDisplay; config: EGLConfig;
 
 
 proc eglGetConfigs*(display: EGLDisplay; configs: ptr EGLConfig;
-  configSize: EGLint; numConfig: ptr EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  configSize: EGLint; numConfig: ptr EGLint): EGLBoolean {.eglImport.}
   ## Return a list of all EGL frame buffer configurations for a display.
   ##
   ## display
@@ -447,15 +450,14 @@ proc eglGetConfigs*(display: EGLDisplay; configs: ptr EGLConfig;
   ## - `EGL_BAD_PARAMETER` if `numConfig` is `nil`.
 
 
-proc eglGetCurrentDisplay*(): EGLDisplay {.cdecl, dynlib: dllname, importc.}
+proc eglGetCurrentDisplay*(): EGLDisplay {.eglImport.}
   ## Return the display for the current EGL rendering context.
   ##
   ## result
   ##   The current EGL display connection.
 
 
-proc eglGetCurrentSurface*(readdraw: EGLint): EGLSurface
-  {.cdecl, dynlib: dllname, importc.}
+proc eglGetCurrentSurface*(readdraw: EGLint): EGLSurface {.eglImport.}
   ## Return the read or draw surface for the current EGL rendering context.
   ##
   ## readdraw
@@ -464,8 +466,7 @@ proc eglGetCurrentSurface*(readdraw: EGLint): EGLSurface
   ##   The read or draw surface attached to the current EGL rendering context.
 
 
-proc eglGetDisplay*(nativeDisplay: EGLNativeDisplayType): EGLDisplay
-  {.cdecl, dynlib: dllname, importc.}
+proc eglGetDisplay*(nativeDisplay: EGLNativeDisplayType): EGLDisplay {.eglImport.}
   ## Return an EGL display connection.
   ##
   ## nativeDisplay
@@ -478,7 +479,7 @@ proc eglGetDisplay*(nativeDisplay: EGLNativeDisplayType): EGLDisplay
   ## No error is generated.
 
 
-proc eglGetError*(): EGLint {.cdecl, dynlib: dllname, importc.}
+proc eglGetError*(): EGLint {.eglImport.}
   ## Return error information.
   ##
   ## result
@@ -516,7 +517,7 @@ proc eglGetError*(): EGLint {.cdecl, dynlib: dllname, importc.}
 
 
 proc eglGetProcAddress*(procname: cstring): EGLMustCastToProperProcType
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Return a GL or an EGL extension function.
   ##
   ## procname
@@ -526,7 +527,7 @@ proc eglGetProcAddress*(procname: cstring): EGLMustCastToProperProcType
 
 
 proc eglInitialize*(display: EGLDisplay; major: ptr EGLint; minor: ptr EGLint):
-  EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  EGLBoolean {.eglImport.}
   ## Initialize an EGL display connection.
   ##
   ## display
@@ -538,7 +539,7 @@ proc eglInitialize*(display: EGLDisplay; major: ptr EGLint; minor: ptr EGLint):
 
 
 proc eglMakeCurrent*(display: EGLDisplay; draw: EGLSurface; read: EGLSurface;
-  context: EGLContext): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  context: EGLContext): EGLBoolean {.eglImport.}
   ## Attach an EGL rendering context to EGL surfaces.
   ##
   ## display
@@ -579,8 +580,7 @@ proc eglMakeCurrent*(display: EGLDisplay; draw: EGLSurface; read: EGLSurface;
 
 
 proc eglQueryContext*(display: EGLDisplay; context: EGLContext;
-  attribute: EGLint; value: ptr EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  attribute: EGLint; value: ptr EGLint): EGLBoolean {.eglImport.}
   ## Return EGL rendering context information.
   ##
   ## display
@@ -603,7 +603,7 @@ proc eglQueryContext*(display: EGLDisplay; context: EGLContext;
 
 
 proc eglQueryString*(display: EGLDisplay; name: EGLint): cstring
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Return a string describing an EGL display connection.
   ##
   ## display
@@ -621,8 +621,7 @@ proc eglQueryString*(display: EGLDisplay; name: EGLint): cstring
 
 
 proc eglQuerySurface*(display: EGLDisplay; surface: EGLSurface;
-  attribute: EGLint; value: ptr EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  attribute: EGLint; value: ptr EGLint): EGLBoolean {.eglImport.}
   ## Return EGL surface information.
   ##
   ## display
@@ -645,7 +644,7 @@ proc eglQuerySurface*(display: EGLDisplay; surface: EGLSurface;
 
 
 proc eglSwapBuffers*(display: EGLDisplay; surface: EGLSurface): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Post EGL surface color buffer to a native window.
   ##
   ## display
@@ -664,8 +663,7 @@ proc eglSwapBuffers*(display: EGLDisplay; surface: EGLSurface): EGLBoolean
   ##   and objects to continue rendering.
 
 
-proc eglTerminate*(display: EGLDisplay): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+proc eglTerminate*(display: EGLDisplay): EGLBoolean {.eglImport.}
   ## Terminate an EGL display connection.
   ##
   ## display
@@ -677,8 +675,7 @@ proc eglTerminate*(display: EGLDisplay): EGLBoolean
   ## - `EGL_BAD_DISPLAY` if `display` is not an EGL display connection.
 
 
-proc eglWaitGL*(): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+proc eglWaitGL*(): EGLBoolean {.eglImport.}
   ## Complete GL execution prior to subsequent native rendering calls.
   ##
   ## result
@@ -690,8 +687,7 @@ proc eglWaitGL*(): EGLBoolean
   ##   longer valid.
 
 
-proc eglWaitNative*(engine: EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+proc eglWaitNative*(engine: EGLint): EGLBoolean {.eglImport.}
   ## Complete native execution prior to subsequent GL rendering calls.
   ##
   ## engine
@@ -727,7 +723,7 @@ const
 
 
 proc eglBindTexImage*(display: EGLDisplay; surface: EGLSurface; buffer: EGLint):
-  EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  EGLBoolean {.eglImport.}
   ## Defines a two-dimensional texture image.
   ##
   ## display
@@ -750,7 +746,7 @@ proc eglBindTexImage*(display: EGLDisplay; surface: EGLSurface; buffer: EGLint):
 
 
 proc eglReleaseTexImage*(display: EGLDisplay; surface: EGLSurface;
-  buffer: EGLint): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  buffer: EGLint): EGLBoolean {.eglImport.}
   ## Releases a color buffer that is being used as a texture.
   ##
   ## display
@@ -772,8 +768,7 @@ proc eglReleaseTexImage*(display: EGLDisplay; surface: EGLSurface;
 
 
 proc eglSurfaceAttrib*(display: EGLDisplay; surface: EGLSurface;
-  attribute: EGLint; value: EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  attribute: EGLint; value: EGLint): EGLBoolean {.eglImport.}
   ## Set an EGL surface attribute.
   ##
   ## display
@@ -803,7 +798,7 @@ proc eglSurfaceAttrib*(display: EGLDisplay; surface: EGLSurface;
 
 
 proc eglSwapInterval*(display: EGLDisplay; interval: EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Specifies the minimum number of video frame periods per buffer swap for the
   ## window associated with the current context.
   ##
@@ -859,7 +854,7 @@ const
   EGL_VERTICAL_RESOLUTION* = 0x00003091
 
 
-proc eglBindAPI*(api: EGLenum): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+proc eglBindAPI*(api: EGLenum): EGLBoolean {.eglImport.}
   ## Set the current rendering API.
   ##
   ## api
@@ -873,7 +868,7 @@ proc eglBindAPI*(api: EGLenum): EGLBoolean {.cdecl, dynlib: dllname, importc.}
   ##   specified client API is not supported by the EGL implementation.
 
 
-proc eglQueryAPI*(): EGLenum {.cdecl, dynlib: dllname, importc.}
+proc eglQueryAPI*(): EGLenum {.eglImport.}
   ## Query the current rendering API.
   ##
   ## result
@@ -883,7 +878,7 @@ proc eglQueryAPI*(): EGLenum {.cdecl, dynlib: dllname, importc.}
 
 proc eglCreatePbufferFromClientBuffer*(display: EGLDisplay; buftype: EGLenum;
   buffer: EGLClientBuffer; config: EGLConfig; attribList: ptr EGLint):
-  EGLSurface {.cdecl, dynlib: dllname, importc.}
+  EGLSurface {.eglImport.}
   ## Create a new EGL pixel buffer surface bound to an OpenVG image.
   ##
   ## display
@@ -941,14 +936,14 @@ proc eglCreatePbufferFromClientBuffer*(display: EGLDisplay; buftype: EGLenum;
   ##   implementation release notes.
 
 
-proc eglReleaseThread*(): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+proc eglReleaseThread*(): EGLBoolean {.eglImport.}
   ## Release EGL per-thread state.
   ##
   ## result
   ##   `EGL_TRUE` on success, `EGL_FALSE` otherwise.
 
 
-proc eglWaitClient*(): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+proc eglWaitClient*(): EGLBoolean {.eglImport.}
   ## Complete client API execution prior to subsequent native rendering calls.
   ##
   ## result
@@ -977,8 +972,12 @@ const
 
 # EGL 1.4 ######################################################################
 
+when compiles(EGLNativeDisplayType(nil)):
+  const EGL_DEFAULT_DISPLAY* = EGLNativeDisplayType(nil)
+else:
+  const EGL_DEFAULT_DISPLAY* = EGLNativeDisplayType(0)
+
 const
-  EGL_DEFAULT_DISPLAY* = 0
   EGL_MULTISAMPLE_RESOLVE_BOX_BIT* = 0x00000200
   EGL_MULTISAMPLE_RESOLVE* = 0x00003099
   EGL_MULTISAMPLE_RESOLVE_DEFAULT* = 0x0000309A
@@ -988,7 +987,7 @@ const
   EGL_SWAP_BEHAVIOR_PRESERVED_BIT* = 0x00000400
 
 
-proc eglGetCurrentContext*(): EGLContext {.cdecl, dynlib: dllname, importc.}
+proc eglGetCurrentContext*(): EGLContext {.eglImport.}
   ## Return the current EGL rendering context.
   ##
   ## result
@@ -1051,7 +1050,7 @@ const
 
 
 proc eglCreateSync*(display: EGLDisplay; syncType: EGLenum;
-  attribList: ptr EGLAttrib): EGLSync {.cdecl, dynlib: dllname, importc.}
+  attribList: ptr EGLAttrib): EGLSync {.eglImport.}
   ## Create a sync object of the specified type.
   ##
   ## display
@@ -1065,7 +1064,7 @@ proc eglCreateSync*(display: EGLDisplay; syncType: EGLenum;
 
 
 proc eglDestroySync*(display: EGLDisplay; sync: EGLSync): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Destroy an existing sync object.
   ##
   ## display
@@ -1080,7 +1079,7 @@ proc eglDestroySync*(display: EGLDisplay; sync: EGLSync): EGLBoolean
 
 
 proc eglClientWaitSync*(display: EGLDisplay; sync: EGLSync; flags: EGLint;
-  timeout: EGLTime): EGLint {.cdecl, dynlib: dllname, importc.}
+  timeout: EGLTime): EGLint {.eglImport.}
   ## Blocks the calling thread until the specified sync object signaled or
   ## timed out.
   ##
@@ -1105,7 +1104,7 @@ proc eglClientWaitSync*(display: EGLDisplay; sync: EGLSync; flags: EGLint;
 
 
 proc eglGetSyncAttrib*(display: EGLDisplay; sync: EGLSync; attribute: EGLint;
-  value: ptr EGLAttrib): EGLBoolean {.cdecl, dynlib: dllname, importc.}
+  value: ptr EGLAttrib): EGLBoolean {.eglImport.}
   ## Query attributes of a sync object.
   ##
   ## display
@@ -1128,8 +1127,7 @@ proc eglGetSyncAttrib*(display: EGLDisplay; sync: EGLSync; attribute: EGLint;
 
 
 proc eglCreateImage*(display: EGLDisplay; context: EGLContext; target: EGLenum;
-  buffer: EGLClientBuffer; attribList: ptr EGLAttrib): EGLImage
-  {.cdecl, dynlib: dllname, importc.}
+  buffer: EGLClientBuffer; attribList: ptr EGLAttrib): EGLImage {.eglImport.}
   ## Create an EGLImage from an existing image resource.
   ##
   ## display
@@ -1216,7 +1214,7 @@ proc eglCreateImage*(display: EGLDisplay; context: EGLContext; target: EGLenum;
 
 
 proc eglDestroyImage*(display: EGLDisplay; image: EGLImage): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Destroy an image object.
   ##
   ## display
@@ -1234,7 +1232,7 @@ proc eglDestroyImage*(display: EGLDisplay; image: EGLImage): EGLBoolean
 
 
 proc eglGetPlatformDisplay*(platform: EGLenum; nativeDisplay: pointer;
-  attribList: ptr EGLAttrib): EGLDisplay {.cdecl, dynlib: dllname, importc.}
+  attribList: ptr EGLAttrib): EGLDisplay {.eglImport.}
   ## Obtain a native platform display.
   ##
   ## platform
@@ -1252,8 +1250,7 @@ proc eglGetPlatformDisplay*(platform: EGLenum; nativeDisplay: pointer;
 
 
 proc eglCreatePlatformWindowSurface*(display: EGLDisplay; config: EGLConfig;
-  nativeWindow: pointer; attribList: ptr EGLAttrib): EGLSurface
-  {.cdecl, dynlib: dllname, importc.}
+  nativeWindow: pointer; attribList: ptr EGLAttrib): EGLSurface {.eglImport.}
   ## Create an onscreen EGLSurface.
   ##
   ## display
@@ -1286,8 +1283,7 @@ proc eglCreatePlatformWindowSurface*(display: EGLDisplay; config: EGLConfig;
 
 
 proc eglCreatePlatformPixmapSurface*(display: EGLDisplay; config: EGLConfig;
-  nativePixmap: pointer; attribList: ptr EGLAttrib): EGLSurface
-  {.cdecl, dynlib: dllname, importc.}
+  nativePixmap: pointer; attribList: ptr EGLAttrib): EGLSurface {.eglImport.}
   ## Create an offscreen EGLSurface.
   ##
   ## display
@@ -1319,7 +1315,7 @@ proc eglCreatePlatformPixmapSurface*(display: EGLDisplay; config: EGLConfig;
 
 
 proc eglWaitSync*(display: EGLDisplay; sync: EGLSync; flags: EGLint): EGLBoolean
-  {.cdecl, dynlib: dllname, importc.}
+  {.eglImport.}
   ## Check whether a sync object is signaled (without blocking the application).
   ##
   ## display
