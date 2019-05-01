@@ -62,7 +62,13 @@ type
   # handle, or other.  While in general a 32-bit integer will suffice, if
   # handles are 64 bit types, then EGLint should be defined as a signed 64-bit
   # integer type.
-  EGLInt* = int
+when defined(linux):
+  type
+    # At least, EGLInt is 32-bit integer on x64 Linux.
+    EGLInt* = int32
+else:
+  type
+    EGLInt* = int
 
 
 type
