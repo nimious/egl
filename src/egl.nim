@@ -37,7 +37,7 @@ elif defined(android):
   {.pragma: eglImport, cdecl, importc.}
 
 elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
-  import xlib, xutil
+  import x11/x, x11/xlib, x11/xutil
 
   type
     EGLNativeDisplayType* = PXDisplay
