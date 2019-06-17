@@ -37,7 +37,7 @@ elif defined(android):
   {.pragma: eglImport, cdecl, importc.}
 
 elif defined(freebsd) or defined(linux) or defined(openbsd) or defined(unix):
-  import xlib, xutil
+  import x11/x, x11/xlib, x11/xutil
 
   type
     EGLNativeDisplayType* = PXDisplay
@@ -62,7 +62,13 @@ type
   # handle, or other.  While in general a 32-bit integer will suffice, if
   # handles are 64 bit types, then EGLint should be defined as a signed 64-bit
   # integer type.
-  EGLInt* = int
+when defined(linux):
+  type
+    # At least, EGLInt is 32-bit integer on x64 Linux.
+    EGLInt* = int32
+else:
+  type
+    EGLInt* = int
 
 
 type
@@ -74,7 +80,7 @@ type
 
 
 type
-  EGLAttribList* {.unchecked.} = seq[EGLInt]
+  EGLAttribList* = seq[EGLInt]
   EGLMustCastToProperProcType* = proc ()
 
 
