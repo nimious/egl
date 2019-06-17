@@ -80,7 +80,7 @@ type
 
 
 type
-  EGLAttribList* {.unchecked.} = seq[EGLInt]
+  EGLAttribList* = seq[EGLInt]
   EGLMustCastToProperProcType* = proc ()
 
 
