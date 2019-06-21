@@ -81,7 +81,7 @@ type
 
 type
   EGLAttribList* = seq[EGLInt]
-  EGLMustCastToProperProcType* = proc ()
+  EGLMustCastToProperProcType* = pointer
 
 
 const
